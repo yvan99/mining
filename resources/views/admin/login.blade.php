@@ -1,16 +1,11 @@
 @include('components.dashcss')
+@include('components.loader')
         <div class="admin">
-            <div class="container-fluid">
+            <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-xxl-3 col-xl-4 col-md-6 col-sm-8">
                         <div class="edit-profile">
-                            <div class="edit-profile__logos">
-                                <a href="index.html">
-                                    <img class="dark" src="img/logo-dark.png" alt="">
-                                    <img class="light" src="img/logo-white.png" alt="">
-                                </a>
-                            </div>
-                            <div class="card border-0">
+                            <div class="card border-1">
                                 <div class="card-header">
                                     <div class="edit-profile__title">
                                         <h6>Sign in HexaDash</h6>
@@ -51,35 +46,6 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="px-20">
-                                    <p class="social-connector social-connector__admin text-center">
-                                        <span>Or</span>
-                                    </p>
-                                    <div class="button-group d-flex align-items-center justify-content-center">
-                                        <ul class="admin-socialBtn">
-                                            <li>
-                                                <button class="btn text-dark google">
-                                                    <img class="svg" src="img/google-Icon.svg" alt="img" />
-                                                </button>
-                                            </li>
-                                            <li>
-                                                <button class=" radius-md wh-48 content-center facebook">
-                                                    <i class="uil uil-facebook-f"></i>
-                                                </button>
-                                            </li>
-                                            <li>
-                                                <button class="radius-md wh-48 content-center twitter">
-                                                    <i class="uil uil-twitter"></i>
-                                                </button>
-                                            </li>
-                                            <li>
-                                                <button class="radius-md wh-48 content-center github">
-                                                    <i class="uil uil-github"></i>
-                                                </button>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
                                 <div class="admin-topbar">
                                     <p class="mb-0">
                                         Don't have an account?
@@ -95,24 +61,4 @@
             </div>
         </div>
     </main>
-    <div id="overlayer">
-        <div class="loader-overlay">
-            <div class="dm-spin-dots spin-lg">
-                <span class="spin-dot badge-dot dot-primary"></span>
-                <span class="spin-dot badge-dot dot-primary"></span>
-                <span class="spin-dot badge-dot dot-primary"></span>
-                <span class="spin-dot badge-dot dot-primary"></span>
-            </div>
-        </div>
-    </div>
-    <div class="enable-dark-mode dark-trigger">
-        <ul>
-            <li>
-                <a href="#">
-                    <i class="uil uil-moon"></i>
-                </a>
-            </li>
-        </ul>
-    </div>
-
 @include('components.dashjs')
