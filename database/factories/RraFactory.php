@@ -1,6 +1,6 @@
 <?php
 
-namespace Database\Factories\Models;
+namespace Database\Factories;
 
 use App\Models\Rra;
 use Illuminate\Database\Eloquent\Factories\Factory;
@@ -12,11 +12,11 @@ class RraFactory extends Factory
     public function definition()
     {
         return [
-            'names' => $this->faker->name,
+            'name' => $this->faker->name,
             'email' => $this->faker->unique()->safeEmail,
             'password' => Hash::make('password'), // default password
             'status' => $this->faker->randomElement(['active', 'inactive']),
-            'ra-code' => $this->faker->unique()->randomNumber(),
+            'ra_code' => $this->faker->unique()->randomNumber(),
         ];
     }
 }

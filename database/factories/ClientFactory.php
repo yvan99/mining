@@ -1,6 +1,6 @@
 <?php
 
-namespace Database\Factories\Models;
+namespace Database\Factories;
 
 use App\Models\Client;
 use Illuminate\Database\Eloquent\Factories\Factory;
@@ -12,12 +12,12 @@ class ClientFactory extends Factory
     public function definition()
     {
         return [
-            'names' => $this->faker->name,
+            'name' => $this->faker->name,
             'email' => $this->faker->unique()->safeEmail,
             'password' => Hash::make('password'), // default password
             'address' => $this->faker->address,
             'phone' => $this->faker->phoneNumber,
-            'cli-code' => $this->faker->unique()->randomNumber(),
+            'cli_code' => $this->faker->unique()->randomNumber(),
             'status' => $this->faker->randomElement(['active', 'inactive']),
         ];
     }
