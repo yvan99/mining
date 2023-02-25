@@ -16,8 +16,8 @@ class RraAuthController extends Controller
         ]);
         $credentials = $request->only('email', 'password');
 
-        if (Auth::guard('client')->attempt($credentials)) {
-            return redirect()->intended('/client/dashboard');
+        if (Auth::guard('rra')->attempt($credentials)) {
+            return redirect()->intended('/rra/dashboard');
         }
 
         throw ValidationException::withMessages([
@@ -27,8 +27,8 @@ class RraAuthController extends Controller
 
     public function logout()
     {
-        Auth::guard('client')->logout();
+        Auth::guard('rra')->logout();
 
-        return redirect('/client/login');
+        return redirect('/rra/login');
     }
 }
