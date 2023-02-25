@@ -35,18 +35,13 @@
                                             <div class="form-group mb-15">
                                                 <label for="password-field">Password</label>
                                                 <div class="position-relative">
-                                                    <input id="password-field" type="password" name="password" class="form-control @error('password') is-invalid @enderror"
+                                                    <input id="password-field" type="password" name="password" class="form-control"
                                                         name="password" placeholder="*****">
                                                     <div
                                                         class="uil uil-eye-slash text-lighten fs-15 field-icon toggle-password2">
                                                     </div>
                                                 </div>
 
-                                                @error('password')
-                                                <span class="invalid-feedback" role="alert">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                            @enderror
                                             </div>
                                             {{-- <div class="admin-condition">
                                             <div class="checkbox-theme-default custom-checkbox ">
