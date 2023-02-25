@@ -2,84 +2,33 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Rra;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Validation\ValidationException;
 
 class RraAuthController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
+    public function login(Request $request)
     {
-        //
+        $request->validate([
+            'email' => 'required|email',
+            'password' => 'required',
+        ]);
+        $credentials = $request->only('email', 'password');
+
+        if (Auth::guard('client')->attempt($credentials)) {
+            return redirect()->intended('/client/dashboard');
+        }
+
+        throw ValidationException::withMessages([
+            'email' => [trans('auth.failed')]
+        ]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    public function logout()
     {
-        //
-    }
+        Auth::guard('client')->logout();
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Rra  $rra
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Rra $rra)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Rra  $rra
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Rra $rra)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Rra  $rra
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Rra $rra)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Rra  $rra
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Rra $rra)
-    {
-        //
+        return redirect('/client/login');
     }
 }
