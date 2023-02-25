@@ -14,12 +14,12 @@
                                 <div class="card-body">
                                     <div class="edit-profile__body">
                                         <div class="form-group mb-25">
-                                            <label for="username">Username or Email Address</label>
+                                            <label for="username">Email Address</label>
                                             <input type="text" class="form-control" id="username"
                                                 placeholder="name@example.com">
                                         </div>
                                         <div class="form-group mb-15">
-                                            <label for="password-field">password</label>
+                                            <label for="password-field">Password</label>
                                             <div class="position-relative">
                                                 <input id="password-field" type="password" class="form-control"
                                                     name="password" placeholder="Password">
@@ -35,7 +35,7 @@
                                                     <span class="checkbox-text">Keep me logged in</span>
                                                 </label>
                                             </div>
-                                            <a href="forget-password.html">forget password?</a>
+                                            {{-- <a href="forget-password.html">forget password?</a> --}}
                                         </div>
                                         <div
                                             class="admin__button-group button-group d-flex pt-1 justify-content-md-start justify-content-center">
