@@ -1,7 +1,7 @@
 @include('components.dashcss')
 
 <body class="overflow-hidden">
-    <main class="main-content">
+    <main class="main-content bg-dark">
         @include('components.loader')
         <div class="admin ">
             <div class="container">
