@@ -16,5 +16,3 @@
     <link rel="stylesheet" href="{{ asset('dashboard/unicons/release/v3.0.0/css/line.css') }}">
 </head>
 
-<body>
-    <main class="main-content">
