@@ -11,11 +11,11 @@
                             <div class="card border-1">
                                 <div class="card-header">
                                     <div class="edit-profile__title">
-                                        <h6>Sign in {{ env('APP_NAME') }}</h6>
+                                        <h6>Sign in {{ env('APP_NAME') }}  : : Client Area</h6>
                                     </div>
                                 </div>
 
-                                <form method="POST" action="{{ route('admin.login') }}">
+                                <form method="POST" action="{{ route('client.login') }}">
                                     @csrf
                                     <div class="card-body">
                                         <div class="edit-profile__body">
