@@ -115,4 +115,4 @@
         </ul>
     </div>
 
-
+@include('components.dashjs')
