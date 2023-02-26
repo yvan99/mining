@@ -25,13 +25,14 @@ class ClientController extends Controller
 
     protected function create(array $data)
     {
+        $randomDigits = rand(100000, 999999);
         return Client::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
             'address' => $data['address'],
             'phone' => $data['phone'],
-            'cli_code' => $data['cli_code'],
+            'cli_code' => $randomDigits,
             'status' => 'active', // default value
         ]);
     }
@@ -41,6 +42,10 @@ class ClientController extends Controller
         $this->validator($request->all())->validate();
 
         event(new Registered($user = $this->create($request->all())));
+
+        // send Sms
+        $getSmsController = new SmsController;
+        $getSmsController->sendSms($request->phone, $message);
 
         Auth::guard('client')->login($user);
 
