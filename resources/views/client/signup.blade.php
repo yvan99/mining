@@ -63,9 +63,9 @@
                                 </form>
                                 <div class="admin-topbar">
                                     <p class="mb-0">
-                                        Don't have an account?
-                                        <a href="/client/signup" class="color-primary">
-                                            Sign up
+                                        Already Have An Account?
+                                        <a href="/client/login" class="color-primary">
+                                            Login
                                         </a>
                                     </p>
                                 </div>
