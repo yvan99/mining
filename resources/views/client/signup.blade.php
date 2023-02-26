@@ -20,19 +20,19 @@
                                     <div class="card-body">
                                         <div class="edit-profile__body row col-xl-12">
 
-                                          <div class="form-group mb-25 col-xl-6">
-                                            <label for="username">Full Names</label>
-                                            <input type="text"
-                                                class="form-control @error('name') is-invalid @enderror"
-                                                name="name" value="{{ old('name') }}"
-                                                placeholder="Ex:John Doe">
+                                            <div class="form-group mb-25 col-xl-6">
+                                                <label for="username">Full Names</label>
+                                                <input type="text"
+                                                    class="form-control @error('name') is-invalid @enderror"
+                                                    name="name" value="{{ old('name') }}"
+                                                    placeholder="Ex:John Doe">
 
-                                            @error('name')
-                                                <span class="invalid-feedback" role="alert">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                            @enderror
-                                        </div>
+                                                @error('name')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
+                                            </div>
 
 
                                             <div class="form-group mb-25 col-xl-6">
@@ -50,39 +50,39 @@
                                             </div>
 
                                             <div class="form-group mb-25 col-xl-6">
-                                              <label for="username">Telephone Number</label>
-                                              <input type="text"
-                                                  class="form-control @error('phone') is-invalid @enderror"
-                                                  name="phone" value="{{ old('phone') }}"
-                                                  placeholder="Ex:Valid Phone Number">
-  
-                                              @error('phone')
-                                                  <span class="invalid-feedback" role="alert">
-                                                      <strong>{{ $message }}</strong>
-                                                  </span>
-                                              @enderror
-                                          </div>
+                                                <label for="username">Telephone Number</label>
+                                                <input type="text"
+                                                    class="form-control @error('phone') is-invalid @enderror"
+                                                    name="phone" value="{{ old('phone') }}"
+                                                    placeholder="Ex:Valid Phone Number">
+
+                                                @error('phone')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
+                                            </div>
 
 
-                                          <div class="form-group mb-25 col-xl-6">
-                                            <label for="username">Residence Address</label>
-                                            <input type="text"
-                                                class="form-control @error('address') is-invalid @enderror"
-                                                name="address" value="{{ old('address') }}"
-                                                placeholder="Ex:Enter your address">
+                                            <div class="form-group mb-25 col-xl-6">
+                                                <label for="username">Residence Address</label>
+                                                <input type="text"
+                                                    class="form-control @error('address') is-invalid @enderror"
+                                                    name="address" value="{{ old('address') }}"
+                                                    placeholder="Ex:Enter your address">
 
-                                            @error('address')
-                                                <span class="invalid-feedback" role="alert">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                            @enderror
-                                        </div>
+                                                @error('address')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
+                                            </div>
 
                                             <div class="form-group mb-15">
                                                 <label for="password-field">Password</label>
                                                 <div class="position-relative">
-                                                    <input id="password-field" type="password" name="password" class="form-control"
-                                                        name="password" placeholder="*****">
+                                                    <input id="password-field" type="password" name="password"
+                                                        class="form-control" name="password" placeholder="*****">
                                                     <div
                                                         class="uil uil-eye-slash text-lighten fs-15 field-icon toggle-password2">
                                                     </div>
