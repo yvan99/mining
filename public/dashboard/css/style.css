@@ -5748,8 +5748,8 @@ body.top-menu .navbar-left .customizer-trigger+.top-menu {
   overflow-y: auto;
   -webkit-box-shadow: 0 0 30px rgba(var(--light-gray-rgba), .1);
   box-shadow: 0 0 30px rgba(var(--light-gray-rgba), .1);
-  width: 280px;
-  background: var(--color-white);
+  width: 240px;
+  background: var(--bg-dark);
   padding: 0;
   -webkit-transition: var(--transition);
   -o-transition: var(--transition);
@@ -5835,7 +5835,8 @@ body.top-menu .navbar-left .customizer-trigger+.top-menu {
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   justify-content: center;
-  margin: 0 auto
+  margin: 0 auto;
+  color:var(--color-white) !important;
 }
 
 .sidebar.collapsed .sidebar__menu-group li a .nav-icon {
@@ -5923,7 +5924,7 @@ body.top-menu .navbar-left .customizer-trigger+.top-menu {
 }
 
 .sidebar__menu-group ul.sidebar_nav li.active>a {
-  color: var(--color-primary)
+  color: var(--color-warning)
 }
 
 .sidebar__menu-group ul.sidebar_nav li.active>a .nav-icon {
@@ -5938,7 +5939,7 @@ body.top-menu .navbar-left .customizer-trigger+.top-menu {
   -ms-flex-align: center;
   align-items: center;
   padding: 10.5px 20px;
-  color: var(--color-gray);
+  color: var(--color-white);
   font-size: 14px;
   position: relative;
   font-weight: 500;
@@ -5947,10 +5948,10 @@ body.top-menu .navbar-left .customizer-trigger+.top-menu {
 }
 
 .sidebar__menu-group ul.sidebar_nav li>a .nav-icon {
-  color: var(--color-lighten);
+  color: var(--color-white);
   display: inline-block;
   margin-right: 20px;
-  width: 16px;
+  width: 26px;
   font-size: calc(16.2px + .15vw);
   -webkit-transition: var(--transition);
   -o-transition: var(--transition);
@@ -5999,14 +6000,14 @@ body.top-menu .navbar-left .customizer-trigger+.top-menu {
 
 .sidebar__menu-group ul.sidebar_nav li>a.active,
 .sidebar__menu-group ul.sidebar_nav li>a:hover {
-  color: var(--color-primary)
+  color: var(--color-warning)
 }
 
 .sidebar__menu-group ul.sidebar_nav li>a.active .nav-icon,
 .sidebar__menu-group ul.sidebar_nav li>a.active .toggle-icon,
 .sidebar__menu-group ul.sidebar_nav li>a:hover .nav-icon,
 .sidebar__menu-group ul.sidebar_nav li>a:hover .toggle-icon {
-  color: var(--color-primary)
+  color: var(--color-warning);
 }
 
 .sidebar__menu-group ul.sidebar_nav li.has-child ul {
@@ -6037,7 +6038,7 @@ body.top-menu .navbar-left .customizer-trigger+.top-menu {
 }
 
 .sidebar__menu-group ul.sidebar_nav li ul li a {
-  color: var(--color-dark)
+  color: var(--color-white)
 }
 
 .sidebar__menu-group ul.sidebar_nav li ul li a span {
