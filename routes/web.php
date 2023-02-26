@@ -25,21 +25,21 @@ Route::get('/', function () {
 Route::prefix('admin')->group(function () {
     Route::view('/login', 'admin.login')->name('admin.login');
     Route::post('/login', [AdminAuthController::class, 'login'])->name('admin.login.submit');
-    Route::post('/logout', [AdminAuthController::class, 'logout'])->name('admin.logout');
+    Route::get('/logout', [AdminAuthController::class, 'logout'])->name('admin.logout');
 });
 
 // Rra routes
 Route::prefix('rra')->group(function () {
     Route::view('/login', 'rra.login')->name('rra.login');
     Route::post('/login', [RraAuthController::class, 'login'])->name('rra.login.submit');
-    Route::post('/logout', [RraAuthController::class, 'logout'])->name('rra.logout');
+    Route::get('/logout', [RraAuthController::class, 'logout'])->name('rra.logout');
 });
 
 // Client routes
 Route::prefix('client')->group(function () {
     Route::view('/login', 'client.login')->name('client.login');
     Route::post('/login', [ClientAuthController::class, 'login'])->name('client.login.submit');
-    Route::post('/logout', [ClientAuthController::class, 'logout'])->name('client.logout');
+    Route::get('/logout', [ClientAuthController::class, 'logout'])->name('client.logout');
     Route::view('/signup', 'client.signup');
     Route::post('/signup', [ClientController::class, 'register'])->name('client.signup.submit');
 });

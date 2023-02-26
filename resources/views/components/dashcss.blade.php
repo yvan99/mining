@@ -12,7 +12,8 @@
     <link rel="stylesheet" href="{{ asset('dashboard/css/style.css') }}">
 
     <link rel="icon" type="image/png" sizes="16x16" href="img/favicon.png">
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
 
-    <link rel="stylesheet" href="{{ asset('dashboard/unicons/release/v3.0.0/css/line.css') }}">
+    
 </head>
 

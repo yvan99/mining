@@ -1,7 +1,7 @@
 @include('components.dashcss')
 
 <body class="layout-light side-menu">
-
+    @include('components.loader')
     <div class="mobile-author-actions"></div>
     @include('admin.components.header')
     <main class="main-content">
@@ -906,16 +906,7 @@
             </div>
         </footer>
     </main>
-    <div id="overlayer">
-        <div class="loader-overlay">
-            <div class="dm-spin-dots spin-lg">
-                <span class="spin-dot badge-dot dot-primary"></span>
-                <span class="spin-dot badge-dot dot-primary"></span>
-                <span class="spin-dot badge-dot dot-primary"></span>
-                <span class="spin-dot badge-dot dot-primary"></span>
-            </div>
-        </div>
-    </div>
+
     <div class="overlay-dark-sidebar"></div>
     <div class="customizer-overlay"></div>
     <div class="customizer-wrapper">

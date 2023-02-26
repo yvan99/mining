@@ -42,7 +42,7 @@
                                       </li>
                                      
                                   </ul>
-                                  <a href="#" class="nav-author__signout">
+                                  <a href="/admin/logout" class="nav-author__signout">
                                       <i class="uil uil-sign-out-alt"></i> Sign Out</a>
                               </div>
                           </div>

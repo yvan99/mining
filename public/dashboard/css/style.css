@@ -6034,7 +6034,7 @@ body.top-menu .navbar-left .customizer-trigger+.top-menu {
 .sidebar__menu-group ul.sidebar_nav li ul li>a.active,
 .sidebar__menu-group ul.sidebar_nav li ul li>a:hover {
   background-color: transparent;
-  color: var(--color-primary)
+  color: var(--color-warning)
 }
 
 .sidebar__menu-group ul.sidebar_nav li ul li a {
