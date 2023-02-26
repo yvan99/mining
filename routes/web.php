@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdminAuthController;
 use App\Http\Controllers\ClientAuthController;
+use App\Http\Controllers\ClientController;
 use App\Http\Controllers\RraAuthController;
 use Illuminate\Support\Facades\Route;
 
@@ -40,7 +41,7 @@ Route::prefix('client')->group(function () {
     Route::post('/login', [ClientAuthController::class, 'login'])->name('client.login.submit');
     Route::post('/logout', [ClientAuthController::class, 'logout'])->name('client.logout');
     Route::view('/signup', 'client.signup')->name('client.signup');
-    Route::post('/signup', [App\Http\Controllers\Auth\ClientRegisterController::class, 'register'])->name('client.signup.submit');
+    Route::post('/signup', [ClientController::class, 'register'])->name('client.signup.submit');
 });
 
 // PROTECTED AUTH MIDDLEWARE ROUTES
