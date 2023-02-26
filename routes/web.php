@@ -45,8 +45,8 @@ Route::prefix('client')->group(function () {
 });
 
 // PROTECTED AUTH MIDDLEWARE ROUTES
-Route::middleware(['auth:admin'])->group(function () {
-    Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('admin.dashboard');
+Route::prefix('admin')->middleware(['auth:admin'])->group(function () {
+    Route::view('/dashboard', 'admin.dashboard');
 });
 
 // Rra routes
