@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Client;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
 class ClientController extends Controller
@@ -19,5 +21,16 @@ class ClientController extends Controller
         ]);
     }
 
-    
+    protected function create(array $data)
+    {
+        return Client::create([
+            'name' => $data['name'],
+            'email' => $data['email'],
+            'password' => Hash::make($data['password']),
+            'address' => $data['address'],
+            'phone' => $data['phone'],
+            'cli_code' => $data['cli_code'],
+            'status' => 'active', // default value
+        ]);
+    }
 }
