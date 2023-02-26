@@ -1,7 +1,7 @@
 <header class="header-top">
   <nav class="navbar navbar-light">
       <div class="navbar-left">
-          <div class="logo-area">
+          {{-- <div class="logo-area">
               <a class="navbar-brand" href="index.html">
                   <img class="dark" src="img/logo-dark.png" alt="logo">
                   <img class="light" src="img/logo-white.png" alt="logo">
@@ -12,7 +12,7 @@
           <a href="#" class="customizer-trigger">
               <i class="uil uil-edit-alt"></i>
               <span>Customize...</span>
-          </a>
+          </a> --}}
           <div class="top-menu">
               <div class="hexadash-top-menu position-relative">
                   <ul>
