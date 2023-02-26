@@ -40,3 +40,18 @@ Route::prefix('client')->group(function () {
     Route::post('/login', [ClientAuthController::class, 'login'])->name('client.login.submit');
     Route::post('/logout', [ClientAuthController::class, 'logout'])->name('client.logout');
 });
+
+// PROTECTED AUTH MIDDLEWARE ROUTES
+Route::middleware(['auth:admin'])->group(function () {
+    Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('admin.dashboard');
+});
+
+// Rra routes
+Route::middleware(['auth:rra'])->group(function () {
+    Route::get('/dashboard', [RraController::class, 'dashboard'])->name('rra.dashboard');
+});
+
+// Client routes
+Route::middleware(['auth:client'])->group(function () {
+    Route::get('/dashboard', [ClientController::class, 'dashboard'])->name('client.dashboard');
+});
