@@ -14,7 +14,6 @@ class SmsController extends Controller
             "recipients" => $receiver,
             "message"    => $message,
         );
-
         $url = env("INTOUCH_API");
         $response = $client->request('POST', $url, [
             'auth' => [env("INTOUCH_USERNAME"), env("INTOUCH_PASSWORD")],
@@ -29,7 +28,6 @@ class SmsController extends Controller
             return $httpcode . 'SMS system error ,SMS not send';
             exit;
         } else {
-            error_log($result);
             return $result;
         }
     }

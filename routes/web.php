@@ -40,7 +40,7 @@ Route::prefix('client')->group(function () {
     Route::view('/login', 'client.login')->name('client.login');
     Route::post('/login', [ClientAuthController::class, 'login'])->name('client.login.submit');
     Route::post('/logout', [ClientAuthController::class, 'logout'])->name('client.logout');
-    Route::view('/signup', 'client.signup')->name('client.signup');
+    Route::view('/signup', 'client.signup');
     Route::post('/signup', [ClientController::class, 'register'])->name('client.signup.submit');
 });
 

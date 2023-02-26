@@ -15,7 +15,7 @@
                                     </div>
                                 </div>
 
-                                <form method="POST" action="{{ route('client.signup') }}">
+                                <form method="POST" action="{{ route('client.signup.submit') }}">
                                     @csrf
                                     <div class="card-body">
                                         <div class="edit-profile__body row col-xl-12">
@@ -82,7 +82,7 @@
                                                 <label for="password-field">Password</label>
                                                 <div class="position-relative">
                                                     <input id="password-field" type="password" name="password"
-                                                        class="form-control" name="password" placeholder="*****">
+                                                        class="form-control @error('password') is-invalid @enderror" name="password" placeholder="*****">
                                                     <div
                                                         class="uil uil-eye-slash text-lighten fs-15 field-icon toggle-password2">
                                                     </div>

@@ -16,10 +16,9 @@ class ClientController extends Controller
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:clients'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'password' => ['required', 'string'],
             'address' => ['required', 'string'],
             'phone' => ['required', 'string'],
-            'cli_code' => ['required', 'string', 'max:255', 'unique:clients'],
         ]);
     }
 
@@ -33,18 +32,19 @@ class ClientController extends Controller
             'address' => $data['address'],
             'phone' => $data['phone'],
             'cli_code' => $randomDigits,
-            'status' => 'active', // default value
+            'status' => 'active', // default active value
         ]);
     }
 
     public function register(Request $request)
     {
         $this->validator($request->all())->validate();
-
         event(new Registered($user = $this->create($request->all())));
 
+        $message = "Hello , .".$request->name . " Welcome to ". env("APP_NAME"). " Client Portal , Your Account Has been Registered Successfully";
+
         // send Sms
-        $getSmsController = new SmsController;
+        $getSmsController = new SmsController();
         $getSmsController->sendSms($request->phone, $message);
 
         Auth::guard('client')->login($user);
