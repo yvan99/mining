@@ -3,6 +3,7 @@
 use App\Http\Controllers\AdminAuthController;
 use App\Http\Controllers\ClientAuthController;
 use App\Http\Controllers\ClientController;
+use App\Http\Controllers\DeliveryController;
 use App\Http\Controllers\MineralController;
 use App\Http\Controllers\RraAuthController;
 use Illuminate\Support\Facades\Route;
@@ -51,6 +52,10 @@ Route::prefix('admin')->middleware(['auth:admin'])->group(function () {
     Route::get('/new-mineral', [MineralController::class, 'create']);
     Route::post('/minerals', [MineralController::class, 'store'])->name('minerals.store');
     Route::get('/manage-minerals', [MineralController::class, 'index'])->name('minerals.index');
+    Route::post('/shipping', [DeliveryController::class, 'store'])->name('deliveries.store');
+    Route::get('/shipping', [DeliveryController::class, 'index'])->name('deliveries.index');
+
+
 
 
 });

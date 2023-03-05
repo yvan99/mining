@@ -14,8 +14,10 @@ class DeliveryController extends Controller
      */
     public function index()
     {
-        //
+        $deliveries = Delivery::all();
+        return view('deliveries.index', compact('deliveries'));
     }
+    
 
     /**
      * Show the form for creating a new resource.
