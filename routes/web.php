@@ -49,7 +49,7 @@ Route::prefix('client')->group(function () {
 Route::prefix('admin')->middleware(['auth:admin'])->group(function () {
     Route::view('/dashboard', 'admin.dashboard');
     Route::get('/new-mineral', [MineralController::class, 'create']);
-    Route::post('/minerals', 'MineralController@store')->name('minerals.store');
+    Route::post('/minerals', [MineralController::class, 'store'])->name('minerals.store');
 
 });
 
