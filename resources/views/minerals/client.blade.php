@@ -51,16 +51,17 @@
                                                         </div>
                                                         <div class="product-item__footer">
                                                             <div class="d-flex align-items-center flex-wrap">
-                                                                <span class="product-desc-price"> Export Price : {{ $mineral->exported_value }}</span>
+                                                                <span class="product-desc-price"> Export Price :
+                                                                    {{ $mineral->exported_value }}</span>
                                                                 {{-- <span class="product-price">$100.00</span>
                                                                 <span class="product-discount">50% Off</span> --}}
                                                             </div>
                                                         </div>
                                                         <div class="product-item__button d-flex mt-20 flex-wrap">
-                                                            <button
-                                                                class="btn btn-primary btn-default btn-squared border-0 px-25">buy
+                                                            <a class="btn btn-primary btn-default btn-squared border-0 px-25"
+                                                                href="/client/view-minerals/{{ $mineral->id }}">buy
                                                                 now
-                                                            </button>
+                                                            </a>
                                                         </div>
                                                     </div>
                                                 </div>
