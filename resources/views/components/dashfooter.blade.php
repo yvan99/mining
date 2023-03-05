@@ -4,7 +4,7 @@
           <div class="row">
               <div class="col-md-6">
                   <div class="footer-copyright">
-                      <p><span>© </span><a href="#">Sovware</a>
+                      <p><span>© {{date("Y")}}</span><a href="#">{{env("APP_NAME")}}</a>
                       </p>
                   </div>
               </div>
