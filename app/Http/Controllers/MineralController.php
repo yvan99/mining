@@ -13,6 +13,13 @@ class MineralController extends Controller
         return view('minerals.index', compact('minerals'));
     }
 
+    public function show($id)
+    {
+        $mineral = Mineral::findOrFail($id);
+
+        return view('minerals.show', compact('mineral'));
+    }
+
     public function indexClient()
     {
         $minerals = Mineral::all();
