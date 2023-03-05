@@ -66,6 +66,6 @@ Route::middleware(['auth:rra'])->group(function () {
 });
 
 // Client routes
-Route::middleware(['auth:client'])->group(function () {
-    Route::get('/dashboard', [ClientController::class, 'dashboard'])->name('client.dashboard');
+Route::prefix('client')->middleware(['auth:client'])->group(function () {
+    Route::view('/dashboard', 'client.dashboard');
 });
