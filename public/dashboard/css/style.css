@@ -5904,7 +5904,7 @@ body.top-menu .navbar-left .customizer-trigger+.top-menu {
 }
 
 .sidebar__menu-group ul.sidebar_nav {
-  margin: 87px 0 0;
+  margin: 17px 0 0;
   padding: 0;
   list-style: none
 }
@@ -36284,7 +36284,7 @@ body:after {
 
 @media(min-width:1150px) {
   .contents {
-    padding: 13px 15px 72px 86px
+    padding: 13px 15px 72px 246px
   }
 
   .contents.expanded {
