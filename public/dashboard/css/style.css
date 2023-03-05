@@ -36282,9 +36282,9 @@ body:after {
   }
 }
 
-@media(max-width:1150px) {
+@media(min-width:1150px) {
   .contents {
-    padding: 73px 15px 72px 16px
+    padding: 13px 15px 72px 86px
   }
 
   .contents.expanded {

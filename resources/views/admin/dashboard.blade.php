@@ -3,7 +3,7 @@
 <body class="layout-light side-menu">
     @include('components.loader')
     <div class="mobile-author-actions"></div>
-    @include('admin.components.header')
+    {{-- @include('admin.components.header') --}}
     <main class="main-content">
       @include('admin.components.sidebar')
         <div class="contents">
@@ -71,7 +71,7 @@
                             </div>
 
                         </div>
-           
+
                         <div class="col-xxl-6 mb-25">
                             <div class="card revenueChartTwo border-0">
                                 <div class="card-header border-0">
