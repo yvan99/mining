@@ -15,7 +15,7 @@ class DeliveryController extends Controller
     public function index()
     {
         $deliveries = Delivery::all();
-        return view('deliveries.index', compact('deliveries'));
+        return view('delivery.index', compact('deliveries'));
     }
     
 
