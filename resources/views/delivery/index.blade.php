@@ -18,7 +18,7 @@
                                         <ol class="breadcrumb">
                                             <li class="breadcrumb-item"><a href="#"><i
                                                         class="uil uil-estate"></i>Dashboard</a></li>
-                                            <li class="breadcrumb-item active" aria-current="page">Demo 2</li>
+                                            <li class="breadcrumb-item active" aria-current="page">{{env("APP_NAME")}}</li>
                                         </ol>
                                     </nav>
                                 </div>
@@ -32,7 +32,7 @@
                                         <div class="card-header">{{ __('Shipping Partners List') }}
                                             <button type="button" class="btn btn-primary" data-bs-toggle="modal"
                                                 data-bs-target="#deliveryModal">
-                                                Add Delivery
+                                                Add Partner
                                             </button>
 
                                         </div>

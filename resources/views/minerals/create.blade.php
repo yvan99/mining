@@ -18,7 +18,7 @@
                                         <ol class="breadcrumb">
                                             <li class="breadcrumb-item"><a href="#"><i
                                                         class="uil uil-estate"></i>Dashboard</a></li>
-                                            <li class="breadcrumb-item active" aria-current="page">Demo 2</li>
+                                            <li class="breadcrumb-item active" aria-current="page">{{env("APP_NAME")}}</li>
                                         </ol>
                                     </nav>
                                 </div>
