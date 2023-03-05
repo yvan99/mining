@@ -7,6 +7,12 @@ use Illuminate\Http\Request;
 
 class MineralController extends Controller
 {
+    public function index()
+{
+    $minerals = Mineral::all();
+    return view('minerals.index', compact('minerals'));
+}
+
     public function create()
     {
         return view('minerals.create');
