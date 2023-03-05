@@ -35,8 +35,19 @@ class DeliveryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'name' => 'required',
+            'phone' => 'required|numeric',
+            'address' => 'required',
+            'truck' => 'required',
+        ]);
+
+        Delivery::create($validatedData);
+
+        return redirect()->route('deliveries.index')
+            ->with('success', 'Delivery created successfully.');
     }
+
 
     /**
      * Display the specified resource.
