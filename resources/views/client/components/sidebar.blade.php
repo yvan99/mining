@@ -11,7 +11,7 @@
                 </li>
 
                 <li>
-                    <a href="/client/manage-minerals">
+                    <a href="/client/view-minerals">
                         <span class="nav-icon uil uil-database"></span>
                         <span class="menu-text">Available Minerals</span>
                     </a>

@@ -68,4 +68,5 @@ Route::middleware(['auth:rra'])->group(function () {
 // Client routes
 Route::prefix('client')->middleware(['auth:client'])->group(function () {
     Route::view('/dashboard', 'client.dashboard');
+    Route::get('/view-minerals', [MineralController::class, 'indexClient'])->name('minerals.index');
 });
