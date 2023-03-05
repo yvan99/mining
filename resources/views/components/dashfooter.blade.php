@@ -4,25 +4,11 @@
           <div class="row">
               <div class="col-md-6">
                   <div class="footer-copyright">
-                      <p><span>© {{date("Y")}}</span><a href="#">{{env("APP_NAME")}}</a>
+                      <p><span>Copyright © {{date("Y")}}</span><a href="#">{{env("APP_NAME")}} </a>
+                        &nbsp;
+                        <span>Powered By {{env("PROJECT_OWNER")}} </span>
                       </p>
                   </div>
-              </div>
-              <div class="col-md-6">
-                  <div class="footer-menu text-end">
-                      <ul>
-                          <li>
-                              <a href="#">About</a>
-                          </li>
-                          <li>
-                              <a href="#">Team</a>
-                          </li>
-                          <li>
-                              <a href="#">Contact</a>
-                          </li>
-                      </ul>
-                  </div>
-
               </div>
           </div>
       </div>
