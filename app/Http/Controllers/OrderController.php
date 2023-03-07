@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Order;
 use Illuminate\Http\Request;
 
 class OrderController extends Controller
@@ -34,7 +35,21 @@ class OrderController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'client_id' => 'required|integer',
+            'mineral_id' => 'required|integer',
+            'quantity' => 'required|integer',
+            'order_status' => 'required|string',
+            'inspection_status' => 'required|string',
+            'payment_status' => 'required|string',
+            'route' => 'required|string',
+            'delivery_id' => 'required|integer',
+            'delivery_status' => 'required|string',
+        ]);
+
+        $order = Order::create($validatedData);
+
+        return redirect()->route('orders.index');
     }
 
     /**
