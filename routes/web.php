@@ -56,6 +56,7 @@ Route::prefix('admin')->middleware(['auth:admin'])->group(function () {
     Route::get('/manage-minerals', [MineralController::class, 'index'])->name('minerals.index');
     Route::post('/shipping', [DeliveryController::class, 'store'])->name('deliveries.store');
     Route::get('/shipping', [DeliveryController::class, 'index'])->name('deliveries.index');
+    Route::get('/orders', [OrderController::class, 'showOrders'])->name('orders.show');
 });
 
 // Rra routes
@@ -68,6 +69,7 @@ Route::prefix('client')->middleware(['auth:client'])->group(function () {
     Route::view('/dashboard', 'client.dashboard');
     Route::get('/view-minerals', [MineralController::class, 'indexClient'])->name('minerals.index');
     Route::get('/view-minerals/{id}', [MineralController::class, 'show'])->name('minerals.show');
+
     Route::post('/view-minerals', [OrderController::class, 'store'])->name('orders.store');
 });
 

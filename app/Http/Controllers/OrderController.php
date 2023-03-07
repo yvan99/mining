@@ -46,7 +46,7 @@ class OrderController extends Controller
         $orderModel->mineral_id = $request->mineral_id;
         $orderModel->client_id = $request->client_id;
         $orderModel->quantity = $request->quantity;
-        $orderModel->order_code =Str::random(10);
+        $orderModel->order_code = Str::random(10);
         $orderModel->route = 'none';
 
         $orderModel->save();
@@ -87,11 +87,12 @@ class OrderController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function showOrders()
     {
-        //
-    }
+        $orders = Order::with('mineral', 'client')->get();
 
+        return view('orders.index', compact('orders'));
+    }
     /**
      * Show the form for editing the specified resource.
      *
