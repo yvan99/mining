@@ -135,14 +135,16 @@
                                             </div>
                                             <div class="total-money d-flex justify-content-between">
                                                 <h6>Total :</h6>
-                                                <h5>$ {{ ($mineral->exported_value * env('PAYMENT_PERCENTAGE')) / 100 }}</h5>
+                                                <h5>$
+                                                    {{ ($mineral->exported_value * env('PAYMENT_PERCENTAGE')) / 100 }}
+                                                </h5>
                                             </div>
                                             <a href="checkout.html"
                                                 class="checkout btn-warning content-center w-100 btn-lg mt-20">
                                                 proceed
                                                 to
                                                 Payment<i class="las la-arrow-right"></i>
-                                                
+
                                             </a>
                                         </div>
                                     </div>
@@ -155,8 +157,6 @@
                 </div>
             </div>
         </div>
-
-
         @include('components.dashfooter')
     </main>
     @include('components.dashjs')
