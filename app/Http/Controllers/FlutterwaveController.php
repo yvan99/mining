@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Order;
+use App\Models\Payment;
 use KingFlamez\Rave\Facades\Rave as Flutterwave;
 
 class FlutterwaveController extends Controller
@@ -28,23 +29,42 @@ class FlutterwaveController extends Controller
      */
     public function callback()
     {
-        
+
         $status = request()->status;
 
         //if payment is successful
         if ($status ==  'successful') {
-        
-        $transactionID = Flutterwave::getTransactionIDFromCallback();
-        $data = Flutterwave::verifyTransaction($transactionID);
-        $updateOrderPaymentStatus = Order::find($data["data"]['meta']['order_id']);
-        $updateOrderPaymentStatus->payment_status="paid";
-        $updateOrderPaymentStatus->save();
-        return view('orders.client')->with('success', 'Your request was successful!');
-        }
-        elseif ($status ==  'cancelled'){
+
+            $transactionID = Flutterwave::getTransactionIDFromCallback();
+            $data = Flutterwave::verifyTransaction($transactionID);
+            $updateOrderPaymentStatus = Order::find($data["data"]['meta']['order_id']);
+            $updateOrderPaymentStatus->payment_status = "paid";
+
+            $transId = $data['data']['flw_ref'];
+            $amount  = $data['data']['amount'];
+            $currency = $data['data']['currency'];
+            $gateway = $data['data']['payment_type'];
+            $customer = $data['data']['customer']['name'];
+            $phone   = $data['data']['customer']['phone_number'];
+            $email   = $data['data']['customer']['email'];
+
+            $payment = new Payment();
+            $payment->flw_id = $transId;
+            $payment->amount = $amount;
+            $payment->names = $customer;
+            $payment->email = $email;
+            $payment->currency = $currency;
+            $payment->gateway = $gateway;
+
+            $payment->save();
+            $getSmsClass = new SmsController();
+            $message = 'Hello Mr/Ms ' . $customer . ' Your Order Has been successfully paid and placed';
+            $getSmsClass->sendSms($phone, $message);
+            $updateOrderPaymentStatus->save();
+            return view('orders.client')->with('success', 'Your request was successful!');
+        } elseif ($status ==  'cancelled') {
             //Put desired action/code after transaction has been cancelled here
-        }
-        else{
+        } else {
             //Put desired action/code after transaction has failed here
         }
         // Get the transaction from your DB using the transaction reference (txref)

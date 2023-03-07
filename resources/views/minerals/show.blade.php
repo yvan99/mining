@@ -149,7 +149,7 @@
                                                 </div>
                                                 <div class="total-money d-flex justify-content-between">
                                                     <h6>Total :</h6>
-                                                    <h5>$
+                                                    <h5>{{ env('PAYMENT_CURRENCY') }}
                                                         {{ ($mineral->exported_value * env('PAYMENT_PERCENTAGE')) / 100 }}
                                                     </h5>
                                                 </div>

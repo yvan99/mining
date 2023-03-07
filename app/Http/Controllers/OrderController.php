@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Order;
 use Illuminate\Http\Request;
 use KingFlamez\Rave\Facades\Rave as Flutterwave;
+use Illuminate\Support\Str;
 
 class OrderController extends Controller
 {
@@ -45,6 +46,7 @@ class OrderController extends Controller
         $orderModel->mineral_id = $request->mineral_id;
         $orderModel->client_id = $request->client_id;
         $orderModel->quantity = $request->quantity;
+        $orderModel->order_code =Str::random(10);
         $orderModel->route = 'none';
 
         $orderModel->save();

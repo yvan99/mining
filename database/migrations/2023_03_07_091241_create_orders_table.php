@@ -18,6 +18,7 @@ class CreateOrdersTable extends Migration
             $table->foreignId('client_id')->constrained();
             $table->foreignId('mineral_id')->constrained();
             $table->integer('quantity');
+            $table->string('order_code');
             $table->string('order_status')->default('pending');
             $table->string('inspection_status')->default('pending');
             $table->string('payment_status')->default('pending');
