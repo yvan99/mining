@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Delivery;
 use App\Models\Order;
 use Illuminate\Http\Request;
 use KingFlamez\Rave\Facades\Rave as Flutterwave;
@@ -90,14 +91,14 @@ class OrderController extends Controller
     public function showOrders()
     {
         $orders = Order::with('mineral', 'client')->get();
-
-        return view('orders.index', compact('orders'));
+        $deliveries = Delivery::all();
+        return view('orders.index', compact('orders', 'deliveries'));
     }
 
     public function showOrdersClient()
     {
         $orders = Order::with('mineral', 'client')->get();
-
+       
         return view('orders.showclient', compact('orders'));
     }
     /**

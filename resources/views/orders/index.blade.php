@@ -76,9 +76,62 @@
 
                                                             <td>{{ $order->created_at }}</td>
                                                             <td>
-                                                                <a href=""
-                                                                    class="btn btn-sm btn-primary">More</a>
+
+                                                                <button type="button" class="btn btn-sm btn-primary"
+                                                                    data-bs-toggle="modal"
+                                                                    data-bs-target="#editModal{{ $order->id }}">More</button>
                                                             </td>
+
+                                                            {{-- ASSIGN DELIVERY MODAL --}}
+                                                            <div class="modal fade" id="editModal{{ $order->id }}"
+                                                                tabindex="-1" role="dialog"
+                                                                aria-labelledby="editModal{{ $order->id }}Label"
+                                                                aria-hidden="true">
+                                                                <div class="modal-dialog" role="document">
+                                                                    <div class="modal-content">
+                                                                        <div class="modal-header">
+                                                                            <h5 class="modal-title"
+                                                                                id="editModal{{ $order->id }}Label">
+                                                                                Order #{{ $order->order_code }} Details
+                                                                            </h5>
+                                                                            <button type="button" class="close"
+                                                                                data-bs-dismiss="modal"
+                                                                                aria-label="Close">
+                                                                                <span aria-hidden="true">&times;</span>
+                                                                            </button>
+                                                                        </div>
+                                                                        <div class="modal-body col-6">
+                                                                            <form {{-- action="{{ route('records.update', $record->id) }}" --}} method="POST">
+                                                                                @csrf
+                                                                                @method('PUT')
+                                                                                <div class="form-group">
+                                                                                    <label for="name">Assign
+                                                                                        Delivery Partner</label>
+                                                                                    <select name=""
+                                                                                        id=""
+                                                                                        class="form-control form-select mt-3">
+                                                                                        @foreach ($deliveries as $delivery)
+                                                                                            <option value="">
+                                                                                                Delivery Agent</option>
+                                                                                        @endforeach
+
+                                                                                    </select>
+                                                                                </div>
+
+                                                                                <!-- add additional form fields as needed -->
+                                                                            </form>
+                                                                        </div>
+                                                                        <div class="modal-footer">
+                                                                            <button type="button"
+                                                                                class="btn btn-danger btn-sm btn-outline"
+                                                                                data-bs-dismiss="modal">Close</button>
+                                                                            <button type="submit"
+                                                                                class="btn btn-primary btn-sm">Save
+                                                                                changes</button>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
                                                         </tr>
                                                     @endforeach
 
@@ -91,13 +144,13 @@
                                 </div>
                             </div>
                         </div>
-
-
-
-
                     </div>
                 </div>
             </div>
+
+
+
+
             @include('components.dashfooter')
     </main>
     @include('components.dashjs')
