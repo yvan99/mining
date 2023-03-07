@@ -15,8 +15,18 @@ class CreateOrdersTable extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('client_id')->constrained();
+            $table->foreignId('mineral_id')->constrained();
+            $table->integer('quantity');
+            $table->string('order_status')->default('pending');
+            $table->string('inspection_status')->default('pending');
+            $table->string('payment_status')->default('pending');
+            $table->string('route')->nullable();
+            $table->foreignId('delivery_id')->nullable()->constrained();
+            $table->string('delivery_status')->default('pending');
             $table->timestamps();
         });
+        
     }
 
     /**
