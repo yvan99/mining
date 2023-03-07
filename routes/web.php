@@ -59,6 +59,7 @@ Route::prefix('client')->middleware(['auth:client'])->group(function () {
     Route::get('/view-minerals', [MineralController::class, 'indexClient'])->name('minerals.index');
     Route::get('/view-minerals/{id}', [MineralController::class, 'show'])->name('minerals.show');
     Route::post('/view-minerals', [OrderController::class, 'store'])->name('orders.store');
+    Route::get('/orders', [OrderController::class, 'showOrdersClient'])->name('orders.client');
 });
 
 // flutterwave callback function

@@ -5,7 +5,7 @@
     <div class="mobile-author-actions"></div>
     {{-- @include('admin.components.header') --}}
     <main class="main-content">
-        @include('admin.components.sidebar')
+        @include('client.components.sidebar')
         <div class="contents">
             <div class="demo2 mb-25 t-thead-bg">
                 <div class="container-fluid">
@@ -30,7 +30,7 @@
                             <div class="row justify-content-center">
                                 <div class="col-md-12">
                                     <div class="card">
-                                        <div class="card-header">{{ __('Client Orders Report') }}</div>
+                                        <div class="card-header">{{ __('My Orders List') }}</div>
                                         <div class="card-body">
                                             <table class="table">
                                                 <thead>
@@ -42,7 +42,6 @@
                                                         <th>Payment Status</th>
                                                         <th>Verif. Status</th>
                                                         <th>Created At</th>
-                                                        <th>Action</th>
                                                     </tr>
                                                 </thead>
 
@@ -75,10 +74,7 @@
                                                             </td>
 
                                                             <td>{{ $order->created_at }}</td>
-                                                            <td>
-                                                                <a href=""
-                                                                    class="btn btn-sm btn-primary">More</a>
-                                                            </td>
+
                                                         </tr>
                                                     @endforeach
 

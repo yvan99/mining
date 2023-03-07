@@ -93,6 +93,13 @@ class OrderController extends Controller
 
         return view('orders.index', compact('orders'));
     }
+
+    public function showOrdersClient()
+    {
+        $orders = Order::with('mineral', 'client')->get();
+
+        return view('orders.showclient', compact('orders'));
+    }
     /**
      * Show the form for editing the specified resource.
      *
