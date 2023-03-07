@@ -58,9 +58,9 @@ Route::prefix('client')->middleware(['auth:client'])->group(function () {
     Route::view('/dashboard', 'client.dashboard');
     Route::get('/view-minerals', [MineralController::class, 'indexClient'])->name('minerals.index');
     Route::get('/view-minerals/{id}', [MineralController::class, 'show'])->name('minerals.show');
-
     Route::post('/view-minerals', [OrderController::class, 'store'])->name('orders.store');
 });
 
 // flutterwave callback function
 Route::get('/rave/callback', [FlutterwaveController::class, 'callback'])->name('callback');
+?>
