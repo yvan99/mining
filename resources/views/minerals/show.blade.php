@@ -114,6 +114,12 @@
                                             <h5 class="fw-500 text-white">Order Summary</h5>
                                         </div>
                                         <div class="card-body px-sm-25 px-20">
+
+                                            @if (session('error'))
+                                                <div class="alert alert-danger">
+                                                    {{ session('error') }}
+                                                </div>
+                                            @endif
                                             <div class="total">
                                                 <div class="subtotalTotal">
                                                     Export Value:
@@ -124,28 +130,61 @@
                                                     <span>{{ env('PAYMENT_PERCENTAGE') }} %</span>
                                                 </div>
                                             </div>
-                                            <div class="promo-code">
-                                                <form>
+
+                                            <form method="POST" action="{{ route('orders.store') }}">
+                                                @csrf
+                                                <div class="promo-code">
                                                     <label for="exampleInputEmail1">Quantity In Tonnage</label>
                                                     <div class="d-flex align-items-center mt-2">
-                                                        <input id="exampleInputEmail1" type="text"
-                                                            placeholder="Enter the quantity" class="form-control" />
-                                                    </div>
-                                                </form>
-                                            </div>
-                                            <div class="total-money d-flex justify-content-between">
-                                                <h6>Total :</h6>
-                                                <h5>$
-                                                    {{ ($mineral->exported_value * env('PAYMENT_PERCENTAGE')) / 100 }}
-                                                </h5>
-                                            </div>
-                                            <a href="checkout.html"
-                                                class="checkout btn-warning content-center w-100 btn-lg mt-20">
-                                                proceed
-                                                to
-                                                Payment<i class="las la-arrow-right"></i>
+                                                        <input id="exampleInputEmail1" type="number"
+                                                            placeholder="Enter the quantity" name="quantity"
+                                                            class="form-control" value="1"
+                                                            max="{{ $mineral->quantity - 1 }}" />
 
-                                            </a>
+                                                        <input id="exampleInputEmail1" type="number"
+                                                            placeholder="Enter the quantity" name="availablequantity"
+                                                            class="form-control d-none"
+                                                            value="{{ $mineral->quantity - 1 }}" />
+                                                    </div>
+                                                </div>
+                                                <div class="total-money d-flex justify-content-between">
+                                                    <h6>Total :</h6>
+                                                    <h5>$
+                                                        {{ ($mineral->exported_value * env('PAYMENT_PERCENTAGE')) / 100 }}
+                                                    </h5>
+                                                </div>
+                                                <div class="form-group d-none">
+                                                    <label for="client_id">Client ID:</label>
+
+                                                    <input type="number" class="form-control" id="client_id"
+                                                        name="client_id" value="{{ auth()->user()->id }}">
+
+                                                    <input type="email" class="form-control" id="email"
+                                                        name="email" value="{{ auth()->user()->email }}">
+
+                                                    <input type="text" class="form-control" id="phone"
+                                                        name="phone" value="{{ auth()->user()->phone }}">
+
+                                                    <input type="text" class="form-control" id="name"
+                                                        name="names" value="{{ auth()->user()->name }}">
+
+                                                    <input type="number" class="form-control" id="amount"
+                                                        name="mineral_id" value="{{ $mineral->id }}">
+
+                                                    <input type="number" class="form-control" id="amount"
+                                                        name="amount"
+                                                        value="{{ ($mineral->exported_value * env('PAYMENT_PERCENTAGE')) / 100 }}">
+                                                </div>
+
+                                                <button class="checkout btn-warning content-center w-100 btn-lg mt-20">
+                                                    proceed
+                                                    to
+                                                    Payment<i class="las la-arrow-right"></i>
+
+                                                </button>
+
+                                            </form>
+
                                         </div>
                                     </div>
                                 </div>
@@ -160,8 +199,3 @@
         @include('components.dashfooter')
     </main>
     @include('components.dashjs')
-    <script>
-        $(document).ready(function() {
-            $("#quantity-input").attr("max", {{ $mineral->quantity - 1 }});
-        });
-    </script>

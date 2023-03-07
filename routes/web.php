@@ -4,6 +4,7 @@ use App\Http\Controllers\AdminAuthController;
 use App\Http\Controllers\ClientAuthController;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\DeliveryController;
+use App\Http\Controllers\FlutterwaveController;
 use App\Http\Controllers\MineralController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\RraAuthController;
@@ -69,3 +70,6 @@ Route::prefix('client')->middleware(['auth:client'])->group(function () {
     Route::get('/view-minerals/{id}', [MineralController::class, 'show'])->name('minerals.show');
     Route::post('/view-minerals', [OrderController::class, 'store'])->name('orders.store');
 });
+
+// flutterwave callback function
+Route::get('/rave/callback', [FlutterwaveController::class, 'callback'])->name('callback');

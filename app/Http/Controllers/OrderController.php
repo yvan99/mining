@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Order;
 use Illuminate\Http\Request;
+use KingFlamez\Rave\Facades\Rave as Flutterwave;
 
 class OrderController extends Controller
 {
@@ -35,21 +36,47 @@ class OrderController extends Controller
      */
     public function store(Request $request)
     {
-        $validatedData = $request->validate([
-            'client_id' => 'required|integer',
-            'mineral_id' => 'required|integer',
-            'quantity' => 'required|integer',
-            'order_status' => 'required|string',
-            'inspection_status' => 'required|string',
-            'payment_status' => 'required|string',
-            'route' => 'required|string',
-            'delivery_id' => 'required|integer',
-            'delivery_status' => 'required|string',
-        ]);
+        // if the user requests larger quantity
+        if ($request->quantity >= $request->availablequantity) {
+            return back()->with('error', 'Requested Quantity no available');
+        }
 
-        $order = Order::create($validatedData);
+        $orderModel = new Order;
+        $orderModel->mineral_id = $request->mineral_id;
+        $orderModel->client_id = $request->client_id;
+        $orderModel->quantity = $request->quantity;
+        $orderModel->route = 'none';
 
-        return redirect()->route('orders.index');
+        $orderModel->save();
+        $createdModelId = Order::findOrFail($orderModel->id);
+        $getFlutterwaveController = new FlutterwaveController();
+        //This generates a payment reference
+        $reference = Flutterwave::generateReference();
+        $flwData = [
+            'payment_options' => 'card,banktransfer',
+            'amount' => $request->amount,
+            'email' => $request->email,
+            'tx_ref' => $reference,
+            'currency' => "RWF",
+            'redirect_url' => route('callback'),
+            'customer' => [
+                'email' => $request->email,
+                "phone_number" => $request->phone,
+                "name" => $request->names
+            ],
+
+            "customizations" => [
+                "title" => 'Mineral Payment',
+                "description" => "Pay For Minerals"
+
+            ],
+            "meta" => [
+                "order_id" => $createdModelId->id
+            ]
+        ];
+
+        $getFlutterwaveController = new FlutterwaveController();
+        return $getFlutterwaveController->initialize($flwData);
     }
 
     /**
