@@ -3,9 +3,9 @@
 <body class="layout-light side-menu">
     @include('components.loader')
     <div class="mobile-author-actions"></div>
-    {{-- @include('admin.components.header') --}}
+    {{-- @include('rra.components.header') --}}
     <main class="main-content">
-        @include('admin.components.sidebar')
+        @include('rra.components.sidebar')
         <div class="contents">
             <div class="demo2 mb-25 t-thead-bg">
                 <div class="container-fluid">
