@@ -98,40 +98,21 @@ class OrderController extends Controller
     public function showOrdersClient()
     {
         $orders = Order::with('mineral', 'client')->get();
-       
+
         return view('orders.showclient', compact('orders'));
     }
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
+    public function assignDelivery(Request $request, $id)
     {
-        //
-    }
+        $order = Order::find($id);
+        return $order;
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
+        if ($order->payment_status !== 'paid') {
+            return back()->with('error', 'Can not assign unpaid order');
+        }
+        $order->delivery_id = $request->input('delivery');
+        $order->route = $request->input('route-name');
+        $order->save();
+        return redirect('/admin/orders')->with('success', 'Order Assigned to delivery.');
     }
 }

@@ -46,6 +46,7 @@ Route::prefix('admin')->middleware(['auth:admin'])->group(function () {
     Route::post('/shipping', [DeliveryController::class, 'store'])->name('deliveries.store');
     Route::get('/shipping', [DeliveryController::class, 'index'])->name('deliveries.index');
     Route::get('/orders', [OrderController::class, 'showOrders'])->name('orders.show');
+    Route::put('/orders/{id}', [OrderController::class,'assignDelivery'])->name('orders.update');
 });
 
 // Rra routes

@@ -32,6 +32,17 @@
                                     <div class="card">
                                         <div class="card-header">{{ __('Client Orders Report') }}</div>
                                         <div class="card-body">
+                                            @if (session('success'))
+                                                <div class="alert alert-success">
+                                                    {{ session('success') }}
+                                                </div>
+                                            @endif
+
+                                            @if (session('error'))
+                                                <div class="alert alert-danger">
+                                                    {{ session('error') }}
+                                                </div>
+                                            @endif
                                             <table class="table">
                                                 <thead>
                                                     <tr>
@@ -99,26 +110,28 @@
                                                                             </button>
                                                                         </div>
                                                                         <div class="modal-body col-12">
-                                                                            <form action="{{ url('/orders/'.$order->id) }}" method="POST">
+                                                                            <form
+                                                                                action="{{ url('/admin/orders/' . $order->id) }}"
+                                                                                method="POST">
                                                                                 @csrf
                                                                                 @method('PUT')
                                                                                 <div>
-                                                                                    <h6 class="mt-2">Order Created At : {{ $order->created_at }}</h6>
-                                                                                    <h6 class="mt-2 mb-3">Order Status : 
+                                                                                    <h6 class="mt-2">Order Created At
+                                                                                        : {{ $order->created_at }}</h6>
+                                                                                    <h6 class="mt-2 mb-3">Order Status :
                                                                                         @if ($order->order_status == 'pending')
-                                                                                        <span
-                                                                                            class="order-bg-opacity-warning  text-warning rounded-pill active">Pending</span>
-                                                                                    @else
-                                                                                        <span
-                                                                                            class="order-bg-opacity-success  text-success rounded-pill active">Paid</span>
-                                                                                    @endif
+                                                                                            <span
+                                                                                                class="order-bg-opacity-warning  text-warning rounded-pill active">Pending</span>
+                                                                                        @else
+                                                                                            <span
+                                                                                                class="order-bg-opacity-success  text-success rounded-pill active">Paid</span>
+                                                                                        @endif
                                                                                     </h6>
                                                                                 </div>
                                                                                 <div class="form-group col-6">
                                                                                     <label for="name">Assign
                                                                                         Delivery Partner</label>
                                                                                     <select name="delivery"
-                                                                                        id=""
                                                                                         class="form-control form-select mt-1">
                                                                                         @foreach ($deliveries as $delivery)
                                                                                             <option
@@ -130,8 +143,27 @@
                                                                                     </select>
                                                                                 </div>
 
+                                                                                <div class="col-md-6">
+                                                                                    <label for="name">Route /
+                                                                                        Address</label>
+                                                                                    <input id="route-name"
+                                                                                        type="text"
+                                                                                        class="form-control @error('route-name') is-invalid @enderror"
+                                                                                        name="route-name"
+                                                                                        value="{{ old('route-name') }}"
+                                                                                        autocomplete="route-name"
+                                                                                        autofocus>
+
+                                                                                    @error('route-name')
+                                                                                        <span class="invalid-feedback"
+                                                                                            role="alert">
+                                                                                            <strong>{{ $message }}</strong>
+                                                                                        </span>
+                                                                                    @enderror
+                                                                                </div>
+
                                                                                 <!-- add additional form fields as needed -->
-                                                                         
+
                                                                         </div>
                                                                         <div class="modal-footer">
                                                                             <button type="submit"
@@ -140,7 +172,8 @@
                                                                             <button type="submit"
                                                                                 class="btn btn-primary btn-sm">Save
                                                                                 changes</button>
-                                                                        </div>  </form>
+                                                                        </div>
+                                                                        </form>
                                                                     </div>
                                                                 </div>
                                                             </div>
