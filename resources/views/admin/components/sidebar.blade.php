@@ -24,7 +24,7 @@
                   </a>
               </li>
  
-              <li class="{{ Request::is('admin/dashboard') ? 'active' : '' }}">
+              <li class="{{ Request::is('admin/orders') ? 'active' : '' }}">
                   <a href="/admin/orders">
                       <span class="nav-icon uil uil-luggage-cart"></span>
                       <span class="menu-text">Manage Orders</span>
