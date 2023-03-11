@@ -1,4 +1,12 @@
 @include('components.invoicecss')
+@php
+    $randomString = '';
+    $length = 10;
+    for ($i = 0; $i < $length; $i++) {
+        $randomString .= mt_rand(1, 9);
+    }
+@endphp
+
 <div class="invoice-container-wrap">
     <div class="invoice-container">
         <main>
@@ -12,7 +20,7 @@
                                 </div>
                             </div>
                             <div class="col-auto">
-                                <h1 class="big-title">Invoice</h1>
+                                <div class="mb-3">{!! DNS1D::getBarcodeHTML($randomString, 'UPCA') !!}</div>
                             </div>
                         </div>
                         <div class="header-bottom">
@@ -23,18 +31,19 @@
                                     </div>
                                 </div>
                                 <div class="col-auto">
-                                    <p class="invoice-number me-4"><b>Invoice No:
+                                    <p class="invoice-number me-4"><b>Reference No:
                                         </b>#{{ Illuminate\Support\Str::random(10) }}</p>
                                 </div>
                                 <div class="col-auto">
                                     <p class="invoice-date"><b>Date: </b> {{ date('d/m/Y') }}</p>
                                 </div>
+
                             </div>
                         </div>
                     </header>
                     <div class="row justify-content-between mb-4">
                         <div class="col-auto">
-                            <div class="invoice-left"><b>Invoiced To:</b>
+                            <div class="invoice-left"><b>Deliver To:</b>
                                 <address>Alex Farnandes<br>450 E 96th St, Indianapolis,<br>WRHX+8Q IN
                                     46240,<br>United States</address>
                             </div>
