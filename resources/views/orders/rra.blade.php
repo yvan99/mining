@@ -66,13 +66,12 @@
                                                             <td>{{ $order->mineral->weight }}</td>
                                                             <td>{{ $order->mineral->mine_tag }}</td>
                                                             <td>{{ $order->mineral->source }}</td>
-                                                            <td> <a href="" class="btn btn-sm btn-warning">Verify</a> </td>      
+                                                            <td> <a href=""
+                                                                    class="btn btn-sm btn-warning">Verify</a> </td>
                                                         </tr>
                                                     @endforeach
 
                                                 </tbody>
-
-
                                             </table>
                                         </div>
                                     </div>
