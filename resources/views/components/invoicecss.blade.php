@@ -18,4 +18,4 @@
     <link rel="stylesheet" href="{{ asset('invoice/css/style.css') }}">
 </head>
 
-<body>
+<body style="background: #fff">
