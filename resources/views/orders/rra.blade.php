@@ -47,7 +47,6 @@
                                                 <thead>
                                                     <tr>
                                                         <th>Order ID</th>
-                                                        <th>Client</th>
                                                         <th>Mineral</th>
                                                         <th>Quantity</th>
                                                         <th>Payment Status</th>
