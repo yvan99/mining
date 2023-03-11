@@ -146,52 +146,55 @@
                                                                                         @endif
                                                                                     </h6>
                                                                                 </div>
+                                                                                @if ($order->delivery_status === 'pending')
+                                                                                    <div class="form-group col-6">
+                                                                                        <label for="name">Assign
+                                                                                            Delivery Partner</label>
+                                                                                        <select name="delivery"
+                                                                                            class="form-control form-select mt-1">
+                                                                                            @foreach ($deliveries as $delivery)
+                                                                                                <option
+                                                                                                    value={{ $delivery->id }}>
+                                                                                                    {{ $delivery->name }}
+                                                                                                </option>
+                                                                                            @endforeach
 
+                                                                                        </select>
+                                                                                    </div>
 
-                                                                                <div class="form-group col-6">
-                                                                                    <label for="name">Assign
-                                                                                        Delivery Partner</label>
-                                                                                    <select name="delivery"
-                                                                                        class="form-control form-select mt-1">
-                                                                                        @foreach ($deliveries as $delivery)
-                                                                                            <option
-                                                                                                value={{ $delivery->id }}>
-                                                                                                {{ $delivery->name }}
-                                                                                            </option>
-                                                                                        @endforeach
+                                                                                    <div class="col-md-6">
+                                                                                        <label for="name">Route /
+                                                                                            Address</label>
+                                                                                        <input id="route-name"
+                                                                                            type="text"
+                                                                                            class="form-control @error('route-name') is-invalid @enderror"
+                                                                                            name="route-name"
+                                                                                            value="{{ old('route-name') }}"
+                                                                                            autocomplete="route-name"
+                                                                                            autofocus>
 
-                                                                                    </select>
-                                                                                </div>
+                                                                                        @error('route-name')
+                                                                                            <span class="invalid-feedback"
+                                                                                                role="alert">
+                                                                                                <strong>{{ $message }}</strong>
+                                                                                            </span>
+                                                                                        @enderror
+                                                                                    </div>
 
-                                                                                <div class="col-md-6">
-                                                                                    <label for="name">Route /
-                                                                                        Address</label>
-                                                                                    <input id="route-name"
-                                                                                        type="text"
-                                                                                        class="form-control @error('route-name') is-invalid @enderror"
-                                                                                        name="route-name"
-                                                                                        value="{{ old('route-name') }}"
-                                                                                        autocomplete="route-name"
-                                                                                        autofocus>
-
-                                                                                    @error('route-name')
-                                                                                        <span class="invalid-feedback"
-                                                                                            role="alert">
-                                                                                            <strong>{{ $message }}</strong>
-                                                                                        </span>
-                                                                                    @enderror
-                                                                                </div>
-
-                                                                                <!-- add additional form fields as needed -->
+                                                                                    <!-- add additional form fields as needed -->
+                                                                                @endif
 
                                                                         </div>
                                                                         <div class="modal-footer">
-                                                                            <button type="submit"
+                                                                            <button type="button"
                                                                                 class="btn btn-danger btn-sm btn-outline"
                                                                                 data-bs-dismiss="modal">Close</button>
-                                                                            <button type="submit"
-                                                                                class="btn btn-primary btn-sm">Save
-                                                                                changes</button>
+                                                                            @if ($order->delivery_status === 'pending')
+                                                                                <button type="submit"
+                                                                                    class="btn btn-primary btn-sm">Assign
+                                                                                    Delivery</button>
+                                                                            @endif
+
                                                                         </div>
                                                                         </form>
                                                                     </div>
