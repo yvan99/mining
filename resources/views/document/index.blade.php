@@ -6,7 +6,6 @@
         $randomString .= mt_rand(1, 9);
     }
 @endphp
-
 <div class="invoice-container-wrap">
     <div class="invoice-container">
         <main>
@@ -44,12 +43,14 @@
                     <div class="row justify-content-between mb-4">
                         <div class="col-auto">
                             <div class="invoice-left"><b>Deliver To:</b>
-                                <address>Alex Farnandes<br>450 E 96th St, Indianapolis,<br>WRHX+8Q IN
-                                    46240,<br>United States</address>
+                                <address>
+                                    {{ $transitData->client->name }},<br>{{ $transitData->client->phone }}
+                                    <br>{{ $transitData->client->email }}
+                                </address>
                             </div>
                         </div>
                         <div class="col-auto">
-                            <div class="invoice-right"><b>Pay To:</b>
+                            <div class="invoice-right"><b>Package From:</b>
                                 <address>Invce Inc<br>4510 E 96th St, Indianapolis,<br>IN 46240, United
                                     States<br>info@invce.com</address>
                             </div>

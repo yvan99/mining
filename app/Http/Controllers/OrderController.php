@@ -71,10 +71,10 @@ class OrderController extends Controller
         return view('orders.index', compact('orders', 'deliveries'));
     }
 
-    public function generateRrra()
+    public function generateRrra($id)
     {
-        $orders = Order::with('mineral', 'client','delivery')->get();
-        return view('document.index', compact('orders'));
+        $transitData = Order::with('mineral', 'client', 'delivery')->find($id);
+        return view('document.index', compact('transitData'));
     }
 
     public function showOrdersTransit()
@@ -126,7 +126,7 @@ class OrderController extends Controller
         $order->save();
 
         $orders = Order::with('mineral', 'client', 'delivery')->find($id);
-        
+
 
         // send message to client
         $getSmsClass = new SmsController;
