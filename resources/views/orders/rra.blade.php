@@ -66,8 +66,17 @@
                                                             <td>{{ $order->mineral->weight }}</td>
                                                             <td>{{ $order->mineral->mine_tag }}</td>
                                                             <td>{{ $order->mineral->source }}</td>
-                                                            <td> <a href="/rra/transit/{{ $order->id }}"
-                                                                    class="btn btn-sm btn-warning">Verify</a> </td>
+                                                            <td>
+                                                              @if ($order->inspection_status === 'approved')
+
+                                                              <a href="/rra/transit/{{ $order->id }}"
+                                                                class="btn btn-sm btn-success"> <i class="uil uil-file-shield-alt"></i> Generate Document</a>    
+                                                              @else
+                                                              <a href="/rra/transit/{{ $order->id }}"
+                                                                class="btn btn-sm btn-warning">Verify</a>    
+                                                              @endif
+                                                            </td>
+                                                              
                                                         </tr>
                                                     @endforeach
 
