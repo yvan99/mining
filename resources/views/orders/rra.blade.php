@@ -5,7 +5,7 @@
     <div class="mobile-author-actions"></div>
     {{-- @include('admin.components.header') --}}
     <main class="main-content">
-        @include('admin.components.sidebar')
+        @include('rra.components.sidebar')
         <div class="contents">
             <div class="demo2 mb-25 t-thead-bg">
                 <div class="container-fluid">
@@ -49,7 +49,7 @@
                                                         <th>Order ID</th>
                                                         <th>Mineral</th>
                                                         <th>Quantity</th>
-                                                        <th>Weight</th>
+                                                        <th>Tonnage</th>
                                                         <th>Tag</th>
                                                         <th>Source</th>
                                                         <th>Action</th>
@@ -63,12 +63,10 @@
                                                             <td>{{ $order->order_code }}</td>
                                                             <td>{{ $order->mineral->name }}</td>
                                                             <td>{{ $order->mineral->quantity }}</td>
-
-
-                                                                <button type="button" class="btn btn-sm btn-primary"
-                                                                    data-bs-toggle="modal"
-                                                                    data-bs-target="#editModal{{ $order->id }}">More</button>
-                                                            </td>
+                                                            <td>{{ $order->mineral->weight }}</td>
+                                                            <td>{{ $order->mineral->mine_tag }}</td>
+                                                            <td>{{ $order->mineral->source }}</td>
+                                                            <td> <a href="" class="btn btn-sm btn-warning">Verify</a> </td>      
                                                         </tr>
                                                     @endforeach
 
