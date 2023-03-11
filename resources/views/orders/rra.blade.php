@@ -49,8 +49,9 @@
                                                         <th>Order ID</th>
                                                         <th>Mineral</th>
                                                         <th>Quantity</th>
-                                                        <th>Payment Status</th>
-                                                        <th>Verif. Status</th>
+                                                        <th>Weight</th>
+                                                        <th>Tag</th>
+                                                        <th>Source</th>
                                                         <th>Action</th>
                                                     </tr>
                                                 </thead>
@@ -60,30 +61,9 @@
                                                     @foreach ($orders as $order)
                                                         <tr>
                                                             <td>{{ $order->order_code }}</td>
-                                                            <td>{{ $order->client->name }}</td>
                                                             <td>{{ $order->mineral->name }}</td>
-                                                            <td>{{ $order->quantity }}</td>
-                                                            <td>
-                                                                @if ($order->payment_status == 'pending')
-                                                                    <span
-                                                                        class="order-bg-opacity-warning  text-warning rounded-pill active">Pending</span>
-                                                                @else
-                                                                    <span
-                                                                        class="order-bg-opacity-success  text-success rounded-pill active">Paid</span>
-                                                                @endif
-                                                            </td>
+                                                            <td>{{ $order->mineral->quantity }}</td>
 
-                                                            <td>
-                                                                @if ($order->inspection_status == 'pending')
-                                                                    <span
-                                                                        class="order-bg-opacity-warning  text-warning rounded-pill active">Pending</span>
-                                                                @else
-                                                                    <span
-                                                                        class="order-bg-opacity-success  text-success rounded-pill active">Paid</span>
-                                                                @endif
-                                                            </td>
-
-                                                            <td>
 
                                                                 <button type="button" class="btn btn-sm btn-primary"
                                                                     data-bs-toggle="modal"
