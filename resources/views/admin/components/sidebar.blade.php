@@ -31,12 +31,12 @@
                     </a>
                 </li>
 
-                <li class="{{ Request::is('admin/inspection') ? 'active' : '' }}">
+                {{-- <li class="{{ Request::is('admin/inspection') ? 'active' : '' }}">
                     <a href="/admin/inspection">
                         <span class="nav-icon uil uil-exchange"></span>
                         <span class="menu-text">RRA Inspections</span>
                     </a>
-                </li>
+                </li> --}}
 
                 <li class="{{ Request::is('admin/shipping') ? 'active' : '' }}">
                     <a href="/admin/shipping">

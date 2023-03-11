@@ -80,7 +80,7 @@
                                                                         class="order-bg-opacity-warning  text-warning rounded-pill active">Pending</span>
                                                                 @else
                                                                     <span
-                                                                        class="order-bg-opacity-success  text-success rounded-pill active">Paid</span>
+                                                                        class="order-bg-opacity-success  text-success rounded-pill active">Approved</span>
                                                                 @endif
                                                             </td>
 
