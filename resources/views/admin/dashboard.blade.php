@@ -18,7 +18,8 @@
                                         <ol class="breadcrumb">
                                             <li class="breadcrumb-item"><a href="#"><i
                                                         class="uil uil-estate"></i>Dashboard</a></li>
-                                            <li class="breadcrumb-item active" aria-current="page">{{env("APP_NAME")}}</li>
+                                            <li class="breadcrumb-item active" aria-current="page">{{ env('APP_NAME') }}
+                                            </li>
                                         </ol>
                                     </nav>
                                 </div>
@@ -31,7 +32,8 @@
                                     <div class="row">
                                         <div class="col-xl-7">
                                             <div class="card-body px-25">
-                                                <h1 class="banner-feature__heading color-white">Welcome , {{Auth::user()->name}}</h1>
+                                                <h1 class="banner-feature__heading color-white">Welcome ,
+                                                    {{ Auth::user()->name }}</h1>
                                                 <p class="banner-feature__para color-white">There are many variations of
                                                     passages of
                                                     Lorem
@@ -39,16 +41,19 @@
                                                     alteration in some form
                                                 </p>
                                                 <div class="d-flex justify-content-sm-start justify-content-center">
-                                                    <button
-                                                        class="banner-feature__btn btn btn-primary color-white btn-md px-20 radius-xs fs-15"
-                                                        type="button">Learn More</button>
+                                                    <a class="banner-feature__btn btn btn-primary color-white btn-md px-20 radius-xs fs-15"
+                                                       href="/admin/manage-minerals">Manage Minerals</a>
+
+                                                       <a class="banner-feature__btn btn btn-danger color-white btn-md px-20 radius-xs fs-15"
+                                                       href="/admin/logout">Sign Out</a>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-xl-5">
                                             <div
                                                 class="banner-feature__shape px-md-25 px-25 py-sm-0 pt-15 pb-30 d-flex justify-content-sm-end justify-content-center">
-                                                <img src=" {{asset('dashboard/img/demo5-banner.png')}}" alt="img" class="svg">
+                                                <img src=" {{ asset('dashboard/img/demo5-banner.png') }}" alt="img"
+                                                    class="svg">
                                             </div>
                                         </div>
                                     </div>
