@@ -24,6 +24,38 @@
                                 </div>
                             </div>
                         </div>
+
+                        <div class="col-xxl-12 mb-25">
+                            <div class="card banner-feature--18 d-flex">
+                                <div class="container-fluid">
+                                    <div class="row">
+                                        <div class="col-xl-7">
+                                            <div class="card-body px-25">
+                                                <h1 class="banner-feature__heading color-white">Welcome , {{Auth::user()->name}}</h1>
+                                                <p class="banner-feature__para color-white">There are many variations of
+                                                    passages of
+                                                    Lorem
+                                                    Ipsum available, but the majority have suffered
+                                                    alteration in some form
+                                                </p>
+                                                <div class="d-flex justify-content-sm-start justify-content-center">
+                                                    <button
+                                                        class="banner-feature__btn btn btn-primary color-white btn-md px-20 radius-xs fs-15"
+                                                        type="button">Learn More</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-xl-5">
+                                            <div
+                                                class="banner-feature__shape px-md-25 px-25 py-sm-0 pt-15 pb-30 d-flex justify-content-sm-end justify-content-center">
+                                                <img src=" {{asset('dashboard/img/demo5-banner.png')}}" alt="img" class="svg">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
                         <div class="col-xxl-3 col-sm-4  col-ssm-12 mb-25">
                             <div
                                 class="ap-po-details ap-po-details--luodcy  overview-card-shape radius-xl d-flex justify-content-between">
