@@ -167,4 +167,4 @@
             </main>
         </div>
     </div>
-
+    @include('components.invoicejs')
