@@ -41,7 +41,6 @@
                                                         <th>Quantity</th>
                                                         <th>Payment Status</th>
                                                         <th>Verif. Status</th>
-                                                        <th>Created At</th>
                                                         <th>Action</th>
                                                     </tr>
                                                 </thead>
@@ -74,7 +73,6 @@
                                                                 @endif
                                                             </td>
 
-                                                            <td>{{ $order->created_at }}</td>
                                                             <td>
 
                                                                 <button type="button" class="btn btn-sm btn-primary"
@@ -100,35 +98,49 @@
                                                                                 <span aria-hidden="true">&times;</span>
                                                                             </button>
                                                                         </div>
-                                                                        <div class="modal-body col-6">
-                                                                            <form {{-- action="{{ route('records.update', $record->id) }}" --}} method="POST">
+                                                                        <div class="modal-body col-12">
+                                                                            <form action="{{ url('/orders/'.$order->id) }}" method="POST">
                                                                                 @csrf
                                                                                 @method('PUT')
-                                                                                <div class="form-group">
+                                                                                <div>
+                                                                                    <h6 class="mt-2">Order Created At : {{ $order->created_at }}</h6>
+                                                                                    <h6 class="mt-2 mb-3">Order Status : 
+                                                                                        @if ($order->order_status == 'pending')
+                                                                                        <span
+                                                                                            class="order-bg-opacity-warning  text-warning rounded-pill active">Pending</span>
+                                                                                    @else
+                                                                                        <span
+                                                                                            class="order-bg-opacity-success  text-success rounded-pill active">Paid</span>
+                                                                                    @endif
+                                                                                    </h6>
+                                                                                </div>
+                                                                                <div class="form-group col-6">
                                                                                     <label for="name">Assign
                                                                                         Delivery Partner</label>
-                                                                                    <select name=""
+                                                                                    <select name="delivery"
                                                                                         id=""
-                                                                                        class="form-control form-select mt-3">
+                                                                                        class="form-control form-select mt-1">
                                                                                         @foreach ($deliveries as $delivery)
-                                                                                            <option value="">
-                                                                                                Delivery Agent</option>
+                                                                                            <option
+                                                                                                value={{ $delivery->id }}>
+                                                                                                {{ $delivery->name }}
+                                                                                            </option>
                                                                                         @endforeach
 
                                                                                     </select>
                                                                                 </div>
 
                                                                                 <!-- add additional form fields as needed -->
-                                                                            </form>
+                                                                         
                                                                         </div>
                                                                         <div class="modal-footer">
-                                                                            <button type="button"
+                                                                            <button type="submit"
                                                                                 class="btn btn-danger btn-sm btn-outline"
                                                                                 data-bs-dismiss="modal">Close</button>
                                                                             <button type="submit"
                                                                                 class="btn btn-primary btn-sm">Save
                                                                                 changes</button>
-                                                                        </div>
+                                                                        </div>  </form>
                                                                     </div>
                                                                 </div>
                                                             </div>
