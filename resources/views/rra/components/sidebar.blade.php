@@ -3,7 +3,7 @@
         <div class="sidebar__menu-group">
             <ul class="sidebar_nav">
                 <li>
-                    <a href="/client/dashboard">
+                    <a href="/rra/dashboard">
                         <span class="nav-icon uil uil-arrow-growth"></span>
                         <span class="menu-text">Dashboard</span>
 
@@ -11,21 +11,14 @@
                 </li>
 
                 <li>
-                    <a href="/client/view-minerals">
-                        <span class="nav-icon uil uil-database"></span>
-                        <span class="menu-text">Available Minerals</span>
-                    </a>
-                </li>
-
-                <li>
-                    <a href="/client/orders">
+                    <a href="/rra/transit">
                         <span class="nav-icon uil uil-luggage-cart"></span>
-                        <span class="menu-text">Orders Report</span>
+                        <span class="menu-text">Transit Report</span>
                     </a>
                 </li>
 
                 <li>
-                    <a href="/client/logout">
+                    <a href="/rra/logout">
                         <span class="nav-icon uil uil-sign-out-alt"></span>
                         <span class="menu-text">Sign Out</span>
                     </a>
