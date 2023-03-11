@@ -10,7 +10,7 @@
                   </a>
               </li>
 
-              <li class="{{ Request::is('admin/dashboard') ? 'active' : '' }}">
+              <li class="{{ Request::is('admin/new-mineral') ? 'active' : '' }}">
                 <a href="/admin/new-mineral">
                     <span class="nav-icon uil uil-plus-circle"></span>
                     <span class="menu-text">Register Minerals</span>
