@@ -73,7 +73,7 @@ class OrderController extends Controller
     public function showOrdersTransit()
     {
         $orders = Order::with('mineral', 'client','delivery')->get();
-        return view('orders.rra', compact('orders', 'deliveries'));
+        return view('orders.rra', compact('orders'));
     }
 
     public function showOrdersClient()

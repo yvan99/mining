@@ -52,7 +52,7 @@ Route::prefix('admin')->middleware(['auth:admin'])->group(function () {
 // Rra routes
 Route::prefix('rra')->middleware(['auth:rra'])->group(function () {
     Route::view('/dashboard', 'rra.dashboard');
-    Route::get('/transit', [OrderController::class, 'showOrdersTransit'])->name('orders.show');
+    Route::get('/transit', [OrderController::class, 'showOrdersTransit'])->name('orders.rra.show');
 });
 
 // Client routes
