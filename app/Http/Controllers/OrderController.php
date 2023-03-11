@@ -73,7 +73,7 @@ class OrderController extends Controller
 
     public function showOrdersTransit()
     {
-        $orders = Order::with('mineral', 'client','delivery') ->where('delivery_status', '=', 'in_transit')->get();
+        $orders = Order::with('mineral', 'client', 'delivery')->where('delivery_status', '=', 'in_transit')->get();
         return view('orders.rra', compact('orders'));
     }
 
@@ -95,43 +95,42 @@ class OrderController extends Controller
         $order->delivery_status = "in_transit";
         $order->save();
 
-        $orders = Order::with('mineral', 'client','delivery')->find($id);
+        $orders = Order::with('mineral', 'client', 'delivery')->find($id);
 
         // send message to client
         $getSmsClass = new SmsController;
-        $messageClient = 'Hello Mr/Ms ' . $orders->client->name . ' Your Order #'. $orders->order_code . ' has been processed and its on the way to your address';
+        $messageClient = 'Hello Mr/Ms ' . $orders->client->name . ' Your Order #' . $orders->order_code . ' has been processed and its on the way to your address';
         $getSmsClass->sendSms($orders->client->phone, $messageClient);
 
         // send message to delivery agent
-        $messageDelivery = 'Hello Mr/Ms ' . $orders->delivery->name . ' Order #'. $orders->order_code . ' has been assigned to you to deliver , login to your dashboard for more details';
+        $messageDelivery = 'Hello Mr/Ms ' . $orders->delivery->name . ' Order #' . $orders->order_code . ' has been assigned to you to deliver , login to your dashboard for more details';
         $getSmsClass->sendSms($orders->delivery->phone, $messageDelivery);
- 
+
         return redirect('/admin/orders')->with('success', 'Order Assigned to delivery.');
     }
 
 
-    public function rraInspection(Request $request, $id)
+    public function rraInspection($id)
     {
         $order = Order::find($id);
-        if ($order->payment_status !== 'paid') {
-            return back()->with('error', 'Can not assign unpaid order');
+        if ($order->delivery_status !== 'in_transit') {
+            return back()->with('error', 'Unauthorized access');
         }
-        $order->delivery_id = $request->input('delivery');
-        $order->route = $request->input('route-name');
-        $order->delivery_status = "in_transit";
+        $order->inspection_status = "approved";
         $order->save();
 
-        $orders = Order::with('mineral', 'client','delivery')->find($id);
+        $orders = Order::with('mineral', 'client', 'delivery')->find($id);
+        
 
         // send message to client
         $getSmsClass = new SmsController;
-        $messageClient = 'Hello Mr/Ms ' . $orders->client->name . ' Your Order #'. $orders->order_code . ' has been processed and its on the way to your address';
+        $messageClient = 'Hello Mr/Ms ' . $orders->client->name . ' Your Order #' . $orders->order_code . ' has been processed from Rwanda Revenue Transit Center.';
         $getSmsClass->sendSms($orders->client->phone, $messageClient);
 
         // send message to delivery agent
-        $messageDelivery = 'Hello Mr/Ms ' . $orders->delivery->name . ' Order #'. $orders->order_code . ' has been assigned to you to deliver , login to your dashboard for more details';
+        $messageDelivery = 'Hello Mr/Ms ' . $orders->delivery->name . ' Order #' . $orders->order_code . ' has been approved from Rwanda Revenue transit center , Deliver it to the client as soon as possible';
         $getSmsClass->sendSms($orders->delivery->phone, $messageDelivery);
- 
-        return redirect('/admin/orders')->with('success', 'Order Assigned to delivery.');
+
+        return redirect('/rra/transit')->with('success', 'Order Processed Successfully.');
     }
 }
