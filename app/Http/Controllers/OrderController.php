@@ -73,7 +73,7 @@ class OrderController extends Controller
 
     public function showOrdersTransit()
     {
-        $orders = Order::with('mineral', 'client','delivery')->get();
+        $orders = Order::with('mineral', 'client','delivery') ->where('delivery_status', '=', 'in_transit')->get();
         return view('orders.rra', compact('orders'));
     }
 
@@ -85,6 +85,32 @@ class OrderController extends Controller
     }
 
     public function assignDelivery(Request $request, $id)
+    {
+        $order = Order::find($id);
+        if ($order->payment_status !== 'paid') {
+            return back()->with('error', 'Can not assign unpaid order');
+        }
+        $order->delivery_id = $request->input('delivery');
+        $order->route = $request->input('route-name');
+        $order->delivery_status = "in_transit";
+        $order->save();
+
+        $orders = Order::with('mineral', 'client','delivery')->find($id);
+
+        // send message to client
+        $getSmsClass = new SmsController;
+        $messageClient = 'Hello Mr/Ms ' . $orders->client->name . ' Your Order #'. $orders->order_code . ' has been processed and its on the way to your address';
+        $getSmsClass->sendSms($orders->client->phone, $messageClient);
+
+        // send message to delivery agent
+        $messageDelivery = 'Hello Mr/Ms ' . $orders->delivery->name . ' Order #'. $orders->order_code . ' has been assigned to you to deliver , login to your dashboard for more details';
+        $getSmsClass->sendSms($orders->delivery->phone, $messageDelivery);
+ 
+        return redirect('/admin/orders')->with('success', 'Order Assigned to delivery.');
+    }
+
+
+    public function rraInspection(Request $request, $id)
     {
         $order = Order::find($id);
         if ($order->payment_status !== 'paid') {
