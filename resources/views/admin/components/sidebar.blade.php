@@ -2,7 +2,7 @@
   <div class="sidebar sidebar-collapse" id="sidebar">
       <div class="sidebar__menu-group">
           <ul class="sidebar_nav">
-              <li>
+              <li class="{{ Request::is('admin/dashboard') ? 'active' : '' }}">
                   <a href="/admin/dashboard">
                       <span class="nav-icon uil uil-arrow-growth"></span>
                       <span class="menu-text">Dashboard</span>
