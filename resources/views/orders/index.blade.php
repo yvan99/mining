@@ -128,6 +128,26 @@
                                                                                         @endif
                                                                                     </h6>
                                                                                 </div>
+
+                                                                                <div>
+
+                                                                                    <h6 class="mt-2 mb-3">Delivery
+                                                                                        Status :
+                                                                                        @if ($order->delivery_status == 'pending')
+                                                                                            <span
+                                                                                                class="order-bg-opacity-info  text-warning rounded-pill active">Pending</span>
+                                                                                        @elseif($order->delivery_status == 'in_transit')
+                                                                                            <span
+                                                                                                class="order-bg-opacity-warning  text-warning rounded-pill active">In
+                                                                                                Transit</span>
+                                                                                        @else
+                                                                                            <span
+                                                                                                class="order-bg-opacity-success  text-success rounded-pill active">Delivered</span>
+                                                                                        @endif
+                                                                                    </h6>
+                                                                                </div>
+
+
                                                                                 <div class="form-group col-6">
                                                                                     <label for="name">Assign
                                                                                         Delivery Partner</label>

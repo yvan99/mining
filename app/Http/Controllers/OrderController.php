@@ -110,17 +110,18 @@ class OrderController extends Controller
         }
         $order->delivery_id = $request->input('delivery');
         $order->route = $request->input('route-name');
+        $order->delivery_status = "in_transit";
         $order->save();
 
         $orders = Order::with('mineral', 'client','delivery')->find($id);
         // send message to client
         $getSmsClass = new SmsController;
-        $messageClient = 'Hello Mr/Ms ' . $orders->client->name . ' Your Order '. $orders->order_code . ' has been processed and its on the way to your address';
+        $messageClient = 'Hello Mr/Ms ' . $orders->client->name . ' Your Order #'. $orders->order_code . ' has been processed and its on the way to your address';
         $getSmsClass->sendSms($orders->client->phone, $messageClient);
 
         // send message to delivery agent
 
-        $messageDelivery = 'Hello Mr/Ms ' . $orders->delivery->name . ' Order '. $orders->order_code . ' has been assigned to you to deliver , login to your dashboard for more details';
+        $messageDelivery = 'Hello Mr/Ms ' . $orders->delivery->name . ' Order #'. $orders->order_code . ' has been assigned to you to deliver , login to your dashboard for more details';
         $getSmsClass->sendSms($orders->delivery->phone, $messageDelivery);
  
         return redirect('/admin/orders')->with('success', 'Order Assigned to delivery.');
