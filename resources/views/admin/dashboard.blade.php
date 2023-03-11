@@ -35,17 +35,14 @@
                                                 <h1 class="banner-feature__heading color-white">Welcome ,
                                                     {{ Auth::user()->name }}</h1>
                                                 <p class="banner-feature__para color-white">There are many variations of
-                                                    passages of
-                                                    Lorem
-                                                    Ipsum available, but the majority have suffered
-                                                    alteration in some form
+                                                    {{ env('ADMIN_BANNER_TEXT') }}
                                                 </p>
                                                 <div class="d-flex justify-content-sm-start justify-content-center">
+                                                    <a class="banner-feature__btn btn btn-warning color-white btn-md px-20 radius-xs fs-15"
+                                                        href="/admin/manage-minerals">Manage Minerals</a>
+                                                    &nbsp;
                                                     <a class="banner-feature__btn btn btn-primary color-white btn-md px-20 radius-xs fs-15"
-                                                       href="/admin/manage-minerals">Manage Minerals</a>
-
-                                                       <a class="banner-feature__btn btn btn-danger color-white btn-md px-20 radius-xs fs-15"
-                                                       href="/admin/logout">Sign Out</a>
+                                                        href="/admin/orders">Manage Orders</a>
                                                 </div>
                                             </div>
                                         </div>
