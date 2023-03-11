@@ -7,8 +7,9 @@
                     <header class="as-header header-layout1">
                         <div class="row align-items-center justify-content-between">
                             <div class="col-auto">
-                                <div class="header-logo"><a href="index.html"><img src="assets/img/logo.svg"
-                                            alt="Invce"></a></div>
+                                <div class="header-logo"><a href="#">
+                                        <img src="{{ asset('invoice/img/rra.png') }}" alt="Invce" width="280"></a>
+                                </div>
                             </div>
                             <div class="col-auto">
                                 <h1 class="big-title">Invoice</h1>
@@ -17,14 +18,16 @@
                         <div class="header-bottom">
                             <div class="row align-items-center">
                                 <div class="col">
-                                    <div class="border-line"><img src="assets/img/bg/line_pattern.svg" alt="line">
+                                    <div class="border-line"><img src="{{ asset('invoice/img/bg/line_pattern.svg') }}"
+                                            alt="line">
                                     </div>
                                 </div>
                                 <div class="col-auto">
-                                    <p class="invoice-number me-4"><b>Invoice No: </b>#935648</p>
+                                    <p class="invoice-number me-4"><b>Invoice No:
+                                        </b>#{{ Illuminate\Support\Str::random(10) }}</p>
                                 </div>
                                 <div class="col-auto">
-                                    <p class="invoice-date"><b>Date: </b>24/07/2022</p>
+                                    <p class="invoice-date"><b>Date: </b> {{ date('d/m/Y') }}</p>
                                 </div>
                             </div>
                         </div>
