@@ -167,10 +167,4 @@
             </main>
         </div>
     </div>
-    <script src="assets/js/vendor/jquery-3.6.0.min.js"></script>
-    <script src="assets/js/app.min.js"></script>
-    <script src="assets/js/main.js"></script>
-</body>
-<!-- Mirrored from angfuzsoft.com/html/invce/demo/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 11 Mar 2023 15:19:45 GMT -->
 
-</html>
