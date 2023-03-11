@@ -50,8 +50,8 @@ Route::prefix('admin')->middleware(['auth:admin'])->group(function () {
 });
 
 // Rra routes
-Route::middleware(['auth:rra'])->group(function () {
-    Route::get('/dashboard', [RraController::class, 'dashboard'])->name('rra.dashboard');
+Route::prefix('rra')->middleware(['auth:rra'])->group(function () {
+    Route::view('/dashboard', 'rra.dashboard');
 });
 
 // Client routes
