@@ -71,6 +71,12 @@ class OrderController extends Controller
         return view('orders.index', compact('orders', 'deliveries'));
     }
 
+    public function generateRrra()
+    {
+        $orders = Order::with('mineral', 'client','delivery')->get();
+        return view('document.index', compact('orders'));
+    }
+
     public function showOrdersTransit()
     {
         $orders = Order::with('mineral', 'client', 'delivery')->where('delivery_status', '=', 'in_transit')->get();

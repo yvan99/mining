@@ -69,7 +69,7 @@
                                                             <td>
                                                               @if ($order->inspection_status === 'approved')
 
-                                                              <a href="/rra/transit/{{ $order->id }}"
+                                                              <a href="/rra/generate/{{ $order->id }}" target="_blank"
                                                                 class="btn btn-sm btn-success"> <i class="uil uil-file-shield-alt"></i> Generate Document</a>    
                                                               @else
                                                               <a href="/rra/transit/{{ $order->id }}"

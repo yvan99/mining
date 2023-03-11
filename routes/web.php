@@ -54,6 +54,7 @@ Route::prefix('rra')->middleware(['auth:rra'])->group(function () {
     Route::view('/dashboard', 'rra.dashboard');
     Route::get('/transit', [OrderController::class, 'showOrdersTransit'])->name('orders.rra.show');
     Route::get('/transit/{id}', [OrderController::class,'rraInspection'])->name('orders.transit');
+    Route::get('/generate/{id}', [OrderController::class,'generateRrra'])->name('orders.transit');
 });
 
 // Client routes
