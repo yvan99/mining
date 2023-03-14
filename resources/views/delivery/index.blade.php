@@ -29,7 +29,7 @@
                             <div class="row justify-content-center">
                                 <div class="col-md-12">
                                     <div class="card">
-                                        <div class="card-header">{{ __('Shipping Partners List') }}
+                                        <div class="card-header">{{ __('Logistics Partners List') }}
                                             <button type="button" class="btn btn-primary" data-bs-toggle="modal"
                                                 data-bs-target="#deliveryModal">
                                                 Add Partner
