@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Delivery;
+use App\Models\Mineral;
 use App\Models\Order;
 use Illuminate\Http\Request;
 use KingFlamez\Rave\Facades\Rave as Flutterwave;
@@ -28,6 +29,13 @@ class OrderController extends Controller
 
         $orderModel->save();
         $createdModelId = Order::findOrFail($orderModel->id);
+
+        // REDUCE QUANTITY FROM MINERAL
+
+        $mineralInfo = Mineral::findOrFail($request->mineral_id);
+        $mineralInfo->quantity = ($mineralInfo->quantity-$request->quantity);
+        $mineralInfo->save();
+
         $getFlutterwaveController = new FlutterwaveController();
         //This generates a payment reference
         $reference = Flutterwave::generateReference();
