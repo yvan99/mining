@@ -42,10 +42,18 @@
                                                         <th>Paid at</th>
                                                     </tr>
                                                 </thead>
-
                                                 <tbody>
+                                                  @foreach ($payment as $pay)
 
-                                                  
+                                                  <tr>
+                                                    <td>{{$pay->flw_id}}</td>
+                                                    <td>{{$pay->amount}}</td>
+                                                    <td>{{$pay->names}}</td>
+                                                    <td>{{$pay->gateway}}</td>
+                                                    <td>{{$pay->created_at}}</td>
+                                                  </tr>
+                                                      
+                                                  @endforeach       
 
                                                 </tbody>
 
