@@ -11,7 +11,6 @@ use Illuminate\Support\Str;
 
 class OrderController extends Controller
 {
-    // TODO: REDUCE QUANTITY ON ORDER / MINERAL
 
     public function store(Request $request)
     {
