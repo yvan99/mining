@@ -59,7 +59,7 @@
                                                         </div>
                                                         <div class="product-item__button d-flex mt-20 flex-wrap">
                                                             <a class="btn btn-primary btn-default btn-squared border-0 px-25"
-                                                                href="/client/view-minerals/{{ $mineral->id }}">buy
+                                                                href="/client/view-minerals/{{ $mineral->id }}">Buy
                                                                 now
                                                             </a>
                                                         </div>
