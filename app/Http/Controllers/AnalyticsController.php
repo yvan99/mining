@@ -11,6 +11,7 @@ class AnalyticsController extends Controller
         $countOrders = DB::table('orders')->count();
         $countMinerals = DB::table('minerals')->count();
         $countPartners = DB::table('deliveries')->count();
-
+        return view('admin.dashboard', compact('countOrders','countMinerals','countPartners'));
     }
+
 }
