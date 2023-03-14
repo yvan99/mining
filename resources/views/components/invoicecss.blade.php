@@ -3,10 +3,10 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Invce - Invoice HTML Template - Template One</title>
+    <title>RRA - Inspection Document</title>
     <meta name="author" content="Angfuzsoft">
-    <meta name="description" content="Invce - Invoice HTML Template">
-    <meta name="keywords" content="Invce - Invoice HTML Template">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
     <meta name="robots" content="INDEX,FOLLOW">
     <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
     <meta name="theme-color" content="#ffffff">
