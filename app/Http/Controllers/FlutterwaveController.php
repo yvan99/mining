@@ -77,4 +77,10 @@ class FlutterwaveController extends Controller
         // You can also redirect to your success page from here
 
     }
+
+    public function paymentHistory(){
+        $payment = Payment::all();
+        return view('admin.payment', compact('payment'));
+
+    }
 }
