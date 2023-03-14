@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminAuthController;
+use App\Http\Controllers\AnalyticsController;
 use App\Http\Controllers\ClientAuthController;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\DeliveryController;
@@ -51,7 +52,7 @@ Route::prefix('admin')->middleware(['auth:admin'])->group(function () {
 
 // Rra routes
 Route::prefix('rra')->middleware(['auth:rra'])->group(function () {
-    Route::view('/dashboard', 'rra.dashboard');
+    Route::get('/dashboard', [AnalyticsController::class, 'adminAnalytics']);
     Route::get('/transit', [OrderController::class, 'showOrdersTransit'])->name('orders.rra.show');
     Route::get('/transit/{id}', [OrderController::class,'rraInspection'])->name('orders.transit');
     Route::get('/generate/{id}', [OrderController::class,'generateRrra'])->name('orders.transit');
