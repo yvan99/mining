@@ -40,7 +40,7 @@ Route::prefix('client')->group(function () {
 
 // PROTECTED AUTH MIDDLEWARE ROUTES
 Route::prefix('admin')->middleware(['auth:admin'])->group(function () {
-    Route::view('/dashboard', 'admin.dashboard');
+    Route::get('/dashboard', [AnalyticsController::class, 'adminAnalytics']);
     Route::get('/new-mineral', [MineralController::class, 'create']);
     Route::post('/minerals', [MineralController::class, 'store'])->name('minerals.store');
     Route::get('/manage-minerals', [MineralController::class, 'index'])->name('minerals.index');
@@ -52,7 +52,7 @@ Route::prefix('admin')->middleware(['auth:admin'])->group(function () {
 
 // Rra routes
 Route::prefix('rra')->middleware(['auth:rra'])->group(function () {
-    Route::get('/dashboard', [AnalyticsController::class, 'adminAnalytics']);
+    Route::view('/dashboard', 'rra.dashboard');
     Route::get('/transit', [OrderController::class, 'showOrdersTransit'])->name('orders.rra.show');
     Route::get('/transit/{id}', [OrderController::class,'rraInspection'])->name('orders.transit');
     Route::get('/generate/{id}', [OrderController::class,'generateRrra'])->name('orders.transit');
