@@ -79,8 +79,8 @@
                                 class="ap-po-details ap-po-details--luodcy  overview-card-shape radius-xl d-flex justify-content-between">
                                 <div class=" ap-po-details-content d-flex flex-wrap justify-content-between w-100">
                                     <div class="ap-po-details__titlebar">
-                                        <p>Total Orders</p>
-                                        <h1>{{ $countOrders }}</h1>
+                                        <p>Logistics Agents</p>
+                                        <h1>{{ $countPartners }}</h1>
                                     </div>
                                     <div class="ap-po-details__icon-area color-secondary">
                                         <i class="uil uil-users-alt"></i>
@@ -95,8 +95,8 @@
                                 class="ap-po-details ap-po-details--luodcy  overview-card-shape radius-xl d-flex justify-content-between">
                                 <div class=" ap-po-details-content d-flex flex-wrap justify-content-between w-100">
                                     <div class="ap-po-details__titlebar">
-                                        <p>Delivery Partners</p>
-                                        <h1>{{ $countPartners }}</h1>
+                                        <p>Total Orders</p>
+                                        <h1>{{ $countOrders }}</h1>
                                     </div>
                                     <div class="ap-po-details__icon-area color-success">
                                         <i class="uil uil-usd-circle"></i>

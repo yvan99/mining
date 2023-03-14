@@ -41,7 +41,7 @@
                 <li class="{{ Request::is('admin/shipping') ? 'active' : '' }}">
                     <a href="/admin/shipping">
                         <span class="nav-icon uil uil-user"></span>
-                        <span class="menu-text">Shipping Partners</span>
+                        <span class="menu-text">Logistics Agents</span>
                     </a>
                 </li>
 
