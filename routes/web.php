@@ -41,6 +41,7 @@ Route::prefix('client')->group(function () {
 // PROTECTED AUTH MIDDLEWARE ROUTES
 Route::prefix('admin')->middleware(['auth:admin'])->group(function () {
     Route::get('/dashboard', [AnalyticsController::class, 'adminAnalytics']);
+    Route::get('/payment', [FlutterwaveController::class, 'paymentHistory']);
     Route::get('/new-mineral', [MineralController::class, 'create']);
     Route::post('/minerals', [MineralController::class, 'store'])->name('minerals.store');
     Route::get('/manage-minerals', [MineralController::class, 'index'])->name('minerals.index');

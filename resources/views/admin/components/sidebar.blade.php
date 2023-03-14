@@ -31,7 +31,7 @@
                     </a>
                 </li>
 
-                <li class="{{ Request::is('admin/orders') ? 'active' : '' }}">
+                <li class="{{ Request::is('admin/payment') ? 'active' : '' }}">
                     <a href="/admin/payment">
                         <span class="nav-icon uil uil-invoice"></span>
                         <span class="menu-text">Payment History</span>
