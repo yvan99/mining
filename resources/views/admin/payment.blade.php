@@ -35,7 +35,7 @@
                                             <table class="table">
                                                 <thead>
                                                     <tr>
-                                                        <th>Paymeny ID</th>
+                                                        <th>Payment ID</th>
                                                         <th>Amount</th>
                                                         <th>Paid By</th>
                                                         <th>Gateway</th>
