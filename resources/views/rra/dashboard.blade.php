@@ -39,9 +39,9 @@
                                                     alteration in some form
                                                 </p>
                                                 <div class="d-flex justify-content-sm-start justify-content-center">
-                                                    <button
-                                                        class="banner-feature__btn btn btn-primary color-white btn-md px-20 radius-xs fs-15"
-                                                        type="button">Learn More</button>
+                                                    <a href="/rra/transit"
+                                                        class="banner-feature__btn btn btn-warning color-white btn-md px-20 radius-xs fs-15"
+                                                        type="button">Transit Report</a>
                                                 </div>
                                             </div>
                                         </div>
