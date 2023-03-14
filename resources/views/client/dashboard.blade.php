@@ -33,16 +33,8 @@
                                             <div class="card-body px-25">
                                                 <h1 class="banner-feature__heading color-white">Welcome , {{Auth::user()->name}}</h1>
                                                 <p class="banner-feature__para color-white">There are many variations of
-                                                    passages of
-                                                    Lorem
-                                                    Ipsum available, but the majority have suffered
-                                                    alteration in some form
+                                                   {{env("CLIENT_BANNER_TEXT")}}
                                                 </p>
-                                                <div class="d-flex justify-content-sm-start justify-content-center">
-                                                    <button
-                                                        class="banner-feature__btn btn btn-primary color-white btn-md px-20 radius-xs fs-15"
-                                                        type="button">Learn More</button>
-                                                </div>
                                             </div>
                                         </div>
                                         <div class="col-xl-5">
@@ -56,54 +48,6 @@
                             </div>
 
                         </div>
-                        <div class="col-xxl-3 col-sm-4  col-ssm-12 mb-25">
-                            <div
-                                class="ap-po-details ap-po-details--luodcy  overview-card-shape radius-xl d-flex justify-content-between">
-                                <div class=" ap-po-details-content d-flex flex-wrap justify-content-between w-100">
-                                    <div class="ap-po-details__titlebar">
-                                        <p>Total Products</p>
-                                        <h1>100+</h1>
-                                    </div>
-                                    <div class="ap-po-details__icon-area color-primary">
-                                        <i class="uil uil-arrow-growth"></i>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                        <div class="col-xxl-3 col-sm-4  col-ssm-12 mb-25">
-
-                            <div
-                                class="ap-po-details ap-po-details--luodcy  overview-card-shape radius-xl d-flex justify-content-between">
-                                <div class=" ap-po-details-content d-flex flex-wrap justify-content-between w-100">
-                                    <div class="ap-po-details__titlebar">
-                                        <p>Total Orders</p>
-                                        <h1>30,825</h1>
-                                    </div>
-                                    <div class="ap-po-details__icon-area color-secondary">
-                                        <i class="uil uil-users-alt"></i>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                        <div class="col-xxl-3 col-sm-4  col-ssm-12 mb-25">
-
-                            <div
-                                class="ap-po-details ap-po-details--luodcy  overview-card-shape radius-xl d-flex justify-content-between">
-                                <div class=" ap-po-details-content d-flex flex-wrap justify-content-between w-100">
-                                    <div class="ap-po-details__titlebar">
-                                        <p>Total Sales</p>
-                                        <h1>$30,825</h1>
-                                    </div>
-                                    <div class="ap-po-details__icon-area color-success">
-                                        <i class="uil uil-usd-circle"></i>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-
   
                     </div>
 
