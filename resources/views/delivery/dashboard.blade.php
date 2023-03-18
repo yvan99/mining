@@ -58,53 +58,6 @@
                             </div>
 
                         </div>
-                        <div class="col-xxl-3 col-sm-4  col-ssm-12 mb-25">
-                            <div
-                                class="ap-po-details ap-po-details--luodcy  overview-card-shape radius-xl d-flex justify-content-between">
-                                <div class=" ap-po-details-content d-flex flex-wrap justify-content-between w-100">
-                                    <div class="ap-po-details__titlebar">
-                                        <p>Total Minerals</p>
-                                        <h1>{{ $countMinerals }}</h1>
-                                    </div>
-                                    <div class="ap-po-details__icon-area color-primary">
-                                        <i class="uil uil-arrow-growth"></i>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                        <div class="col-xxl-3 col-sm-4  col-ssm-12 mb-25">
-
-                            <div
-                                class="ap-po-details ap-po-details--luodcy  overview-card-shape radius-xl d-flex justify-content-between">
-                                <div class=" ap-po-details-content d-flex flex-wrap justify-content-between w-100">
-                                    <div class="ap-po-details__titlebar">
-                                        <p>Logistics Agents</p>
-                                        <h1>{{ $countPartners }}</h1>
-                                    </div>
-                                    <div class="ap-po-details__icon-area color-secondary">
-                                        <i class="uil uil-users-alt"></i>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                        <div class="col-xxl-3 col-sm-4  col-ssm-12 mb-25">
-
-                            <div
-                                class="ap-po-details ap-po-details--luodcy  overview-card-shape radius-xl d-flex justify-content-between">
-                                <div class=" ap-po-details-content d-flex flex-wrap justify-content-between w-100">
-                                    <div class="ap-po-details__titlebar">
-                                        <p>Total Orders</p>
-                                        <h1>{{ $countOrders }}</h1>
-                                    </div>
-                                    <div class="ap-po-details__icon-area color-success">
-                                        <i class="uil uil-usd-circle"></i>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
 
                     </div>
 
