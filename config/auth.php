@@ -48,6 +48,10 @@ return [
             'driver' => 'session',
             'provider' => 'clients',
         ],
+        'delivery' => [
+            'driver' => 'session',
+            'provider' => 'deliveries',
+        ],
     ],
 
 
@@ -80,6 +84,10 @@ return [
         'clients' => [
             'driver' => 'eloquent',
             'model' => App\Models\Client::class,
+        ],
+        'deliveries' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Delivery::class,
         ],
     ],
 
