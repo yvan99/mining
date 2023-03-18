@@ -47,7 +47,7 @@
                                         <div class="col-xl-5">
                                             <div
                                                 class="banner-feature__shape px-md-25 px-25 py-sm-0 pt-15 pb-30 d-flex justify-content-sm-end justify-content-center">
-                                                <img src=" {{ asset('dashboard/img/demo5-banner.png') }}" alt="img"
+                                                <img src=" {{ asset('dashboard/img/delivery-man.png') }}" alt="img"
                                                     class="svg">
                                             </div>
                                         </div>
