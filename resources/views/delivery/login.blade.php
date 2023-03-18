@@ -11,7 +11,7 @@
                             <div class="card border-1">
                                 <div class="card-header">
                                     <div class="edit-profile__title">
-                                        <h6>Sign in {{ env('APP_NAME') }}</h6>
+                                        <h6>Sign in {{ env('APP_NAME') }} : : Shipping Partner</h6>
                                     </div>
                                 </div>
 
