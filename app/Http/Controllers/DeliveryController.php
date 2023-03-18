@@ -42,6 +42,7 @@ class DeliveryController extends Controller
             'phone' => 'required|numeric',
             'address' => 'required',
             'truck' => 'required',
+            'email'=>'required|email'
         ]);
 
         Delivery::create($validatedData);
