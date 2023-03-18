@@ -14,6 +14,7 @@ class DeliveryAuthController extends Controller
             'password' => 'required',
         ]);
         $credentials = $request->only('email', 'password');
+        return $credentials;
 
         if (Auth::guard('delivery')->attempt($credentials)) {
             return redirect()->intended('/delivery/dashboard');

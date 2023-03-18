@@ -15,7 +15,7 @@
                                     </div>
                                 </div>
 
-                                <form method="POST" action="{{ route('admin.login') }}">
+                                <form method="POST" action="{{ route('delivery.login') }}">
                                     @csrf
                                     <div class="card-body">
                                         <div class="edit-profile__body">
