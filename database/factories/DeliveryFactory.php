@@ -18,6 +18,8 @@ class DeliveryFactory extends Factory
             'password' => Hash::make('password'), // default password
             'address' => $this->faker->address,
             'phone' => $this->faker->phoneNumber,
+            'truck'=> $this->faker->name
+            
         ];
     }
 }
