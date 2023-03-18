@@ -38,6 +38,14 @@ Route::prefix('client')->group(function () {
     Route::post('/signup', [ClientController::class, 'register'])->name('client.signup.submit');
 });
 
+
+// Shipping Partner routes
+Route::prefix('delivery')->group(function () {
+    Route::view('/login', 'delivery.login')->name('delivery.login');
+    Route::post('/login', [AdminAuthController::class, 'login'])->name('delivery.login.submit');
+    Route::get('/logout', [AdminAuthController::class, 'logout'])->name('delivery.logout');
+});
+
 // PROTECTED AUTH MIDDLEWARE ROUTES
 Route::prefix('admin')->middleware(['auth:admin'])->group(function () {
     Route::get('/dashboard', [AnalyticsController::class, 'adminAnalytics']);
