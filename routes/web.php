@@ -4,6 +4,7 @@ use App\Http\Controllers\AdminAuthController;
 use App\Http\Controllers\AnalyticsController;
 use App\Http\Controllers\ClientAuthController;
 use App\Http\Controllers\ClientController;
+use App\Http\Controllers\DeliveryAuthController;
 use App\Http\Controllers\DeliveryController;
 use App\Http\Controllers\FlutterwaveController;
 use App\Http\Controllers\MineralController;
@@ -42,8 +43,8 @@ Route::prefix('client')->group(function () {
 // Shipping Partner routes
 Route::prefix('delivery')->group(function () {
     Route::view('/login', 'delivery.login')->name('delivery.login');
-    Route::post('/login', [AdminAuthController::class, 'login'])->name('delivery.login.submit');
-    Route::get('/logout', [AdminAuthController::class, 'logout'])->name('delivery.logout');
+    Route::post('/login', [DeliveryAuthController::class, 'login'])->name('delivery.login.submit');
+    Route::get('/logout', [DeliveryAuthController::class, 'logout'])->name('delivery.logout');
 });
 
 // PROTECTED AUTH MIDDLEWARE ROUTES
