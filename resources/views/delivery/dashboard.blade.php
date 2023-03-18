@@ -5,7 +5,7 @@
     <div class="mobile-author-actions"></div>
     {{-- @include('admin.components.header') --}}
     <main class="main-content">
-        @include('client.components.sidebar')
+        @include('delivery.components.sidebar')
         <div class="contents">
             <div class="demo2 mb-25 t-thead-bg">
                 <div class="container-fluid">
@@ -18,7 +18,8 @@
                                         <ol class="breadcrumb">
                                             <li class="breadcrumb-item"><a href="#"><i
                                                         class="uil uil-estate"></i>Dashboard</a></li>
-                                            <li class="breadcrumb-item active" aria-current="page">{{env("APP_NAME")}}</li>
+                                            <li class="breadcrumb-item active" aria-current="page">{{ env('APP_NAME') }}
+                                            </li>
                                         </ol>
                                     </nav>
                                 </div>
@@ -31,16 +32,23 @@
                                     <div class="row">
                                         <div class="col-xl-7">
                                             <div class="card-body px-25">
-                                                <h1 class="banner-feature__heading color-white">Welcome , {{Auth::user()->name}}</h1>
+                                                <h1 class="banner-feature__heading color-white">Welcome ,
+                                                    {{ Auth::user()->name }}</h1>
                                                 <p class="banner-feature__para color-white">
-                                                   {{env("CLIENT_BANNER_TEXT")}}
+                                                    {{ env('DELIVERY_BANNER_TEXT') }}
                                                 </p>
+                                                <div class="d-flex justify-content-sm-start justify-content-center">
+                                                    <a class="banner-feature__btn btn btn-warning color-white btn-md px-20 radius-xs fs-15"
+                                                        href="/admin/manage-minerals">Manage Delivery</a>
+                                                    
+                                                </div>
                                             </div>
                                         </div>
                                         <div class="col-xl-5">
                                             <div
                                                 class="banner-feature__shape px-md-25 px-25 py-sm-0 pt-15 pb-30 d-flex justify-content-sm-end justify-content-center">
-                                                <img src=" {{asset('dashboard/img/demo5-banner.png')}}" alt="img" class="svg">
+                                                <img src=" {{ asset('dashboard/img/delivery-man.png') }}" alt="img"
+                                                    class="svg">
                                             </div>
                                         </div>
                                     </div>
@@ -48,7 +56,7 @@
                             </div>
 
                         </div>
-  
+
                     </div>
 
                 </div>

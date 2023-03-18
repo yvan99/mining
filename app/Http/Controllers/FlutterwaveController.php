@@ -61,7 +61,7 @@ class FlutterwaveController extends Controller
             $message = 'Hello Mr/Ms ' . $customer . ' Your Order Has been successfully paid and placed';
             $getSmsClass->sendSms($phone, $message);
             $updateOrderPaymentStatus->save();
-            return view('orders.client')->with('success', 'Your request was successful!');
+            return redirect('/client/orders')->with('success', 'Your request was successful!');
         } elseif ($status ==  'cancelled') {
             //Put desired action/code after transaction has been cancelled here
         } else {

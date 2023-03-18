@@ -4,6 +4,7 @@ use App\Http\Controllers\AdminAuthController;
 use App\Http\Controllers\AnalyticsController;
 use App\Http\Controllers\ClientAuthController;
 use App\Http\Controllers\ClientController;
+use App\Http\Controllers\DeliveryAuthController;
 use App\Http\Controllers\DeliveryController;
 use App\Http\Controllers\FlutterwaveController;
 use App\Http\Controllers\MineralController;
@@ -38,6 +39,14 @@ Route::prefix('client')->group(function () {
     Route::post('/signup', [ClientController::class, 'register'])->name('client.signup.submit');
 });
 
+
+// Shipping Partner routes
+Route::prefix('delivery')->group(function () {
+    Route::view('/login', 'delivery.login')->name('delivery.login');
+    Route::post('/login', [DeliveryAuthController::class, 'login'])->name('delivery.login.submit');
+    Route::get('/logout', [DeliveryAuthController::class, 'logout'])->name('delivery.logout');
+});
+
 // PROTECTED AUTH MIDDLEWARE ROUTES
 Route::prefix('admin')->middleware(['auth:admin'])->group(function () {
     Route::get('/dashboard', [AnalyticsController::class, 'adminAnalytics']);
@@ -57,6 +66,11 @@ Route::prefix('rra')->middleware(['auth:rra'])->group(function () {
     Route::get('/transit', [OrderController::class, 'showOrdersTransit'])->name('orders.rra.show');
     Route::get('/transit/{id}', [OrderController::class,'rraInspection'])->name('orders.transit');
     Route::get('/generate/{id}', [OrderController::class,'generateRrra'])->name('orders.transit');
+});
+
+// Shipping Partner routes
+Route::prefix('delivery')->middleware(['auth:delivery'])->group(function () {
+    Route::view('/dashboard', 'delivery.dashboard');
 });
 
 // Client routes
