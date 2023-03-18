@@ -68,6 +68,11 @@ Route::prefix('rra')->middleware(['auth:rra'])->group(function () {
     Route::get('/generate/{id}', [OrderController::class,'generateRrra'])->name('orders.transit');
 });
 
+// Shipping Partner routes
+Route::prefix('delivery')->middleware(['auth:delivery'])->group(function () {
+    Route::view('/dashboard', 'delivery.dashboard');
+});
+
 // Client routes
 Route::prefix('client')->middleware(['auth:client'])->group(function () {
     Route::view('/dashboard', 'client.dashboard');

@@ -32,7 +32,7 @@
                                         <div class="col-xl-7">
                                             <div class="card-body px-25">
                                                 <h1 class="banner-feature__heading color-white">Welcome , {{Auth::user()->name}}</h1>
-                                                <p class="banner-feature__para color-white">There are many variations of
+                                                <p class="banner-feature__para color-white">
                                                    {{env("CLIENT_BANNER_TEXT")}}
                                                 </p>
                                             </div>
