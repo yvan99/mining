@@ -19,6 +19,8 @@ class CreateDeliveryTable extends Migration
             $table->string('phone');
             $table->string('address');
             $table->string('truck');
+            $table->string('email')->unique();
+            $table->string('password');
             $table->timestamps();
         });
     }
