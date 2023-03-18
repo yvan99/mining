@@ -14,7 +14,7 @@
                 <li class="{{ Request::is('delivery/orders') ? 'active' : '' }}">
                     <a href="/delivery/orders">
                         <span class="nav-icon uil uil-luggage-cart"></span>
-                        <span class="menu-text">Manage Orders</span>
+                        <span class="menu-text">Assigned Orders</span>
                     </a>
                 </li>
 

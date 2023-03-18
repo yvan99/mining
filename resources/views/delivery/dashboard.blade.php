@@ -39,10 +39,8 @@
                                                 </p>
                                                 <div class="d-flex justify-content-sm-start justify-content-center">
                                                     <a class="banner-feature__btn btn btn-warning color-white btn-md px-20 radius-xs fs-15"
-                                                        href="/admin/manage-minerals">Manage Minerals</a>
-                                                    &nbsp;
-                                                    <a class="banner-feature__btn btn btn-primary color-white btn-md px-20 radius-xs fs-15"
-                                                        href="/admin/orders">Manage Orders</a>
+                                                        href="/admin/manage-minerals">Manage Delivery</a>
+                                                    
                                                 </div>
                                             </div>
                                         </div>
