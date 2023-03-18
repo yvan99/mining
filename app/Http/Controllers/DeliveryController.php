@@ -42,13 +42,14 @@ class DeliveryController extends Controller
             'phone' => 'required|numeric',
             'address' => 'required',
             'truck' => 'required',
-            'email'=>'required|email'
+            'email'=>'required|email',
+            'password' => 'required'
         ]);
 
         Delivery::create($validatedData);
 
-        return redirect()->route('deliveries.index')
-            ->with('success', 'Delivery created successfully.');
+        return redirect()->back()
+            ->with('success', 'Shipping Partner created successfully.');
     }
 
 

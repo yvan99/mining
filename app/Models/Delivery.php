@@ -15,6 +15,8 @@ class Delivery extends Authenticatable
         'phone',
         'address',
         'truck',
+        'email',
+        'password'
     ];
 }
 ?>
