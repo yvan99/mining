@@ -6,6 +6,7 @@ use App\Models\Delivery;
 use App\Models\Mineral;
 use App\Models\Order;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use KingFlamez\Rave\Facades\Rave as Flutterwave;
 use Illuminate\Support\Str;
 
@@ -32,7 +33,7 @@ class OrderController extends Controller
         // REDUCE QUANTITY FROM MINERAL
 
         $mineralInfo = Mineral::findOrFail($request->mineral_id);
-        $mineralInfo->quantity = ($mineralInfo->quantity-$request->quantity);
+        $mineralInfo->quantity = ($mineralInfo->quantity - $request->quantity);
         $mineralInfo->save();
 
         $getFlutterwaveController = new FlutterwaveController();
@@ -88,6 +89,13 @@ class OrderController extends Controller
     {
         $orders = Order::with('mineral', 'client', 'delivery')->where('delivery_status', '=', 'in_transit')->get();
         return view('orders.rra', compact('orders'));
+    }
+
+    public function showOrdersDeliveryGuy()
+    {
+        $getLoggedInUser = Auth::user()->id;
+        $orders = Order::with('mineral', 'client', 'delivery')->where('delivery_id', '=', $getLoggedInUser)->get();
+        return view('orders.delivery', compact('orders'));
     }
 
     public function showOrdersClient()
