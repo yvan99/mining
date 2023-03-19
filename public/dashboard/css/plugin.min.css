@@ -9218,8 +9218,9 @@ fieldset:disabled .btn {
 }
 
 .rounded-pill {
-  -webkit-border-radius: 50rem !important;
-  border-radius: 50rem !important
+  -webkit-border-radius: 6px !important;
+  border-radius: 6px !important;
+  padding:5px;
 }
 
 .rounded-top {
