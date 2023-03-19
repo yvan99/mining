@@ -6,6 +6,7 @@ use App\Models\Delivery;
 use App\Models\Mineral;
 use App\Models\Order;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use KingFlamez\Rave\Facades\Rave as Flutterwave;
 use Illuminate\Support\Str;
 
@@ -32,7 +33,7 @@ class OrderController extends Controller
         // REDUCE QUANTITY FROM MINERAL
 
         $mineralInfo = Mineral::findOrFail($request->mineral_id);
-        $mineralInfo->quantity = ($mineralInfo->quantity-$request->quantity);
+        $mineralInfo->quantity = ($mineralInfo->quantity - $request->quantity);
         $mineralInfo->save();
 
         $getFlutterwaveController = new FlutterwaveController();
@@ -90,6 +91,13 @@ class OrderController extends Controller
         return view('orders.rra', compact('orders'));
     }
 
+    public function showOrdersDeliveryGuy()
+    {
+        $getLoggedInUser = Auth::user()->id;
+        $orders = Order::with('mineral', 'client', 'delivery')->where('delivery_id', '=', $getLoggedInUser)->get();
+        return view('orders.delivery', compact('orders'));
+    }
+
     public function showOrdersClient()
     {
         $orders = Order::with('mineral', 'client')->get();
@@ -145,5 +153,20 @@ class OrderController extends Controller
         $getSmsClass->sendSms($orders->delivery->phone, $messageDelivery);
 
         return redirect('/rra/transit')->with('success', 'Order Processed Successfully.');
+    }
+
+
+    public function deliverOrder($id)
+    {
+        $order = Order::find($id);
+        $order->delivery_status = "delivered";
+        $order->save();
+        $orders = Order::with('mineral', 'client', 'delivery')->find($id);
+        // send message to client
+        $getSmsClass = new SmsController;
+        $messageClient = 'Hello Mr/Ms ' . $orders->client->name . ' Your Order #' . $orders->order_code . ' has been successfully delivered to your address.';
+        $getSmsClass->sendSms($orders->client->phone, $messageClient);
+
+        return redirect('/delivery/shipping')->with('success', 'Order Delivered Successfully.');
     }
 }
