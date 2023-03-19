@@ -61,7 +61,8 @@
 
                                                     @foreach ($orders as $order)
                                                         <tr>
-                                                            <td>{{ $order->order_code }}</td>
+                                                            <td><span class="badge badge-primary">{{ $order->order_code }}</span>
+                                                                </td>
                                                             <td>{{ $order->mineral->name }}</td>
                                                             <td>{{ $order->mineral->quantity }}</td>
                                                             <td>{{ $order->mineral->weight }}</td>
