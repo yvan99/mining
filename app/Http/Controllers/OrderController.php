@@ -154,4 +154,22 @@ class OrderController extends Controller
 
         return redirect('/rra/transit')->with('success', 'Order Processed Successfully.');
     }
+
+
+    public function deliverOrder($id)
+    {
+        $order = Order::find($id);
+        $order->delivery_status = "delivered";
+        $order->save();
+
+        $orders = Order::with('mineral', 'client', 'delivery')->find($id);
+
+
+        // send message to client
+        $getSmsClass = new SmsController;
+        $messageClient = 'Hello Mr/Ms ' . $orders->client->name . ' Your Order #' . $orders->order_code . ' has been successfully delivered to your address.';
+        $getSmsClass->sendSms($orders->client->phone, $messageClient);
+
+        return redirect('/delivery/shipping')->with('success', 'Order Delivered Successfully.');
+    }
 }
