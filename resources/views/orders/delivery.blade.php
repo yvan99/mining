@@ -71,13 +71,14 @@
                                                             <td>{{ $order->mineral->weight }}</td>
                                                             <td>{{ $order->mineral->mine_tag }}</td>
                                                             <td>
-                                                              @if ($order->inspection_status === 'approved')
+                                                              @if ($order->delivery_status === 'delivered')
 
-                                                              <a href="/delivery/shipping/approve/{{ $order->id }}"
-                                                                class="btn btn-sm btn-success"  onclick="return confirm('Are you sure you want to proceed?')"> Deliver</a>    
-                                                              @else
                                                               <a href="#"
-                                                                class="btn btn-sm btn-warning">Transit Pending</a>    
+                                                                class="btn btn-sm btn-success">Delivered</a>    
+                                                              @else
+                                                              <a href="/delivery/shipping/approve/{{ $order->id }}"
+                                                                class="btn btn-sm btn-warning"  onclick="return confirm('Are you sure you want to proceed?')"> Deliver</a>    
+                                                              
                                                               @endif
                                                             </td>
                                                               
