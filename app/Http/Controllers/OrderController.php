@@ -161,10 +161,7 @@ class OrderController extends Controller
         $order = Order::find($id);
         $order->delivery_status = "delivered";
         $order->save();
-
         $orders = Order::with('mineral', 'client', 'delivery')->find($id);
-
-
         // send message to client
         $getSmsClass = new SmsController;
         $messageClient = 'Hello Mr/Ms ' . $orders->client->name . ' Your Order #' . $orders->order_code . ' has been successfully delivered to your address.';
