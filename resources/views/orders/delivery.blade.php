@@ -50,6 +50,7 @@
                                                         <th>Mineral</th>
                                                         <th>Client</th>
                                                         <th>Telephone</th>
+                                                        <th>Address</th>
                                                         <th>Quantity</th>
                                                         <th>Tonnage</th>
                                                         <th>Tag</th>
@@ -61,18 +62,19 @@
 
                                                     @foreach ($orders as $order)
                                                         <tr>
-                                                            <td><span class="badge badge-primary">{{ $order->order_code }}</span>
-                                                                </td>
+                                                            <td>{{ $order->order_code }}</td>
                                                             <td>{{ $order->mineral->name }}</td>
-                                                            <td>{{ $order->mineral->quantity }}</td>
+                                                            <td>{{ $order->client->name }}</td>
+                                                            <td>{{ $order->client->phone }}</td>
+                                                            <td>{{ $order->client->address }}</td>
+                                                            <td>{{ $order->quantity }}</td>
                                                             <td>{{ $order->mineral->weight }}</td>
                                                             <td>{{ $order->mineral->mine_tag }}</td>
-                                                            <td>{{ $order->mineral->source }}</td>
                                                             <td>
                                                               @if ($order->inspection_status === 'approved')
 
                                                               <a href="/rra/generate/{{ $order->id }}" target="_blank"
-                                                                class="btn btn-sm btn-success"> <i class="uil uil-file-shield-alt"></i> Generate Document</a>    
+                                                                class="btn btn-sm btn-success"> <i class="uil uil-file-shield-alt"></i> Deliver</a>    
                                                               @else
                                                               <a href="/rra/transit/{{ $order->id }}"
                                                                 class="btn btn-sm btn-warning">Verify</a>    
