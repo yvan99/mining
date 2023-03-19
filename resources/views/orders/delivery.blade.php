@@ -73,10 +73,10 @@
                                                             <td>
                                                               @if ($order->inspection_status === 'approved')
 
-                                                              <a href="/shipping/approve/{{ $order->id }}" target="_blank"
-                                                                class="btn btn-sm btn-success"> Deliver</a>    
+                                                              <a href="/delivery/shipping/approve/{{ $order->id }}"
+                                                                class="btn btn-sm btn-success"  onclick="return confirm('Are you sure you want to proceed?')"> Deliver</a>    
                                                               @else
-                                                              <a href="/rra/transit/{{ $order->id }}"
+                                                              <a href="#"
                                                                 class="btn btn-sm btn-warning">Transit Pending</a>    
                                                               @endif
                                                             </td>

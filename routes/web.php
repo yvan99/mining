@@ -72,6 +72,7 @@ Route::prefix('rra')->middleware(['auth:rra'])->group(function () {
 Route::prefix('delivery')->middleware(['auth:delivery'])->group(function () {
     Route::view('/dashboard', 'delivery.dashboard');
     Route::get('/shipping', [OrderController::class, 'showOrdersDeliveryGuy']);
+    Route::get('/shipping/approve/{id}', [OrderController::class, 'deliverOrder']);
 });
 
 // Client routes
