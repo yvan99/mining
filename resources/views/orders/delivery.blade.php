@@ -48,10 +48,11 @@
                                                     <tr>
                                                         <th>Order ID</th>
                                                         <th>Mineral</th>
+                                                        <th>Client</th>
+                                                        <th>Telephone</th>
                                                         <th>Quantity</th>
                                                         <th>Tonnage</th>
                                                         <th>Tag</th>
-                                                        <th>Source</th>
                                                         <th>Action</th>
                                                     </tr>
                                                 </thead>
