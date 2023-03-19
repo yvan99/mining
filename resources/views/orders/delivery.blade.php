@@ -5,7 +5,7 @@
     <div class="mobile-author-actions"></div>
     {{-- @include('admin.components.header') --}}
     <main class="main-content">
-        @include('rra.components.sidebar')
+        @include('delivery.components.sidebar')
         <div class="contents">
             <div class="demo2 mb-25 t-thead-bg">
                 <div class="container-fluid">
