@@ -2,7 +2,7 @@
 
 ## Usage
 
-- Clone the repo
+- Clone the repository
 
 - Install all packages `composer update`
 
