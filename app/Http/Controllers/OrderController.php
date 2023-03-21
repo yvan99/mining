@@ -100,7 +100,8 @@ class OrderController extends Controller
 
     public function showOrdersClient()
     {
-        $orders = Order::with('mineral', 'client')->get();
+        $getLoggedInUser = Auth::user()->id;
+        $orders = Order::with('mineral', 'client')->where('client_id', '=', $getLoggedInUser)->get();
 
         return view('orders.showclient', compact('orders'));
     }
@@ -160,6 +161,7 @@ class OrderController extends Controller
     {
         $order = Order::find($id);
         $order->delivery_status = "delivered";
+        $order->order_status = "success";
         $order->save();
         $orders = Order::with('mineral', 'client', 'delivery')->find($id);
         // send message to client

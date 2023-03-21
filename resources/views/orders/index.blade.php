@@ -122,7 +122,10 @@
                                                                                         @if ($order->order_status == 'pending')
                                                                                             <span
                                                                                                 class="order-bg-opacity-warning  text-warning rounded-pill active">Pending</span>
-                                                                                        @else
+                                                                                        @elseif ($order->order_status == 'success')
+                                                                                        <span
+                                                                                                class="order-bg-opacity-success  text-success rounded-pill active">Completed</span>
+                                                                                                @else
                                                                                             <span
                                                                                                 class="order-bg-opacity-success  text-success rounded-pill active">Paid</span>
                                                                                         @endif

@@ -115,7 +115,7 @@
                                                     id="email" name="email" value="{{ old('email') }}">
                                                     <input type="text"
                                                     class="form-control d-none"
-                                                    id="password" name="password" value="password">
+                                                    id="password" name="password" value={{ Hash::make('password')}}                                                    >
                                                 @error('email')
                                                     <div class="invalid-feedback">{{ $message }}</div>
                                                 @enderror
