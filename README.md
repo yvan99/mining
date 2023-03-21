@@ -3,6 +3,7 @@
 ## Usage
 
 - Clone the repository
+- Install Xampp , Composer to your system
 
 - Install all packages `composer update`
 
