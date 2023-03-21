@@ -3,9 +3,10 @@
 ## Usage
 
 - Clone the repository
+
 - Install Xampp , Composer to your system
 
-- Install all packages `composer update`
+- Open your terminal and Install all packages `composer update`
 
 - Setup environment variables
 
