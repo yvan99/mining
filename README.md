@@ -2,7 +2,7 @@
 
 ## Usage
 
-- Clone the repository
+- Clone the repository 
 
 - Install Xampp , Composer to your system
 
