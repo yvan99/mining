@@ -1,7 +1,4 @@
-
-
 # Mining Project
-
 
 ## Usage
 
