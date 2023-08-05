@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use KingFlamez\Rave\Facades\Rave as Flutterwave;
 use Illuminate\Support\Str;
+use PDF;
 
 class OrderController extends Controller
 {
@@ -78,6 +79,22 @@ class OrderController extends Controller
         $deliveries = Delivery::all();
         return view('orders.index', compact('orders', 'deliveries'));
     }
+
+    public function generateDailyOrderReport()
+    {
+        $ordersByDate = Order::selectRaw('DATE(created_at) as date, GROUP_CONCAT(id) as order_ids')
+            ->groupBy('date')
+            ->orderBy('date', 'desc')
+            ->get();
+
+        $pdf = PDF::loadView('orders.daily_report', compact('ordersByDate'));
+
+        $pdfFileName = 'daily_order_reports.pdf';
+
+        return $pdf->download($pdfFileName);
+    }
+
+
 
     public function generateRrra($id)
     {

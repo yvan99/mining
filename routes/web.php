@@ -59,6 +59,7 @@ Route::prefix('admin')->middleware(['auth:admin'])->group(function () {
     Route::get('/orders', [OrderController::class, 'showOrders'])->name('orders.show');
     Route::put('/orders/{id}', [OrderController::class,'assignDelivery'])->name('orders.update');
     Route::get('/daily-pdf', [MineralController::class, 'generateMineralsPdf']);
+    Route::get('/order-pdf', [OrderController::class, 'generateDailyOrderReport']);
 });
 
 // Rra routes

@@ -30,7 +30,9 @@
                             <div class="row justify-content-center">
                                 <div class="col-md-12">
                                     <div class="card">
-                                        <div class="card-header">{{ __('Client Orders Report') }}</div>
+                                        <div class="card-header">{{ __('Client Orders Report') }}
+                                        <a href="/admin/order-pdf" class="btn btn-sm btn-success">Download Report</a>
+                                        </div>
                                         <div class="card-body">
                                             @if (session('success'))
                                                 <div class="alert alert-success">
