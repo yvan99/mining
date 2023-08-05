@@ -30,7 +30,7 @@
 <body>
     @foreach ($ordersByDate as $ordersData)
         <div style="page-break-after: always;">
-            <h3>Daily Order Report - {{ $ordersData->date }}</h3>
+            <h4>Daily Order Report - {{ $ordersData->date }}</h4>
 
             <table>
                 <thead>
@@ -41,7 +41,7 @@
                         <th>Quantity</th>
                         <th>Payment Status</th>
                         <th>Verif. Status</th>
-                 
+
                     </tr>
                 </thead>
                 <tbody>
@@ -50,10 +50,29 @@
                             $order = \App\Models\Order::with('client', 'mineral')->find($orderId);
                         @endphp
                         <tr>
+                            <td>{{ $order->order_code }}</td>
                             <td>{{ $order->client->name }}</td>
                             <td>{{ $order->mineral->name }}</td>
                             <td>{{ $order->quantity }}</td>
-                            <!-- Add more columns as needed -->
+                            <td>
+                                @if ($order->payment_status == 'pending')
+                                    <span
+                                        class="order-bg-opacity-warning  text-warning rounded-pill active">Pending</span>
+                                @else
+                                    <span class="order-bg-opacity-success  text-success rounded-pill active">Paid</span>
+                                @endif
+                            </td>
+
+                            <td>
+                                @if ($order->inspection_status == 'pending')
+                                    <span
+                                        class="order-bg-opacity-warning  text-warning rounded-pill active">Pending</span>
+                                @else
+                                    <span
+                                        class="order-bg-opacity-success  text-success rounded-pill active">Approved</span>
+                                @endif
+                            </td>
+
                         </tr>
                     @endforeach
                 </tbody>
