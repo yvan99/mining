@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Order;
 use App\Models\Payment;
 use KingFlamez\Rave\Facades\Rave as Flutterwave;
+use PDF;
 
 class FlutterwaveController extends Controller
 {
@@ -83,4 +84,18 @@ class FlutterwaveController extends Controller
         return view('admin.payment', compact('payment'));
 
     }
+
+    public function generateDailyPaymentReport()
+{
+    $paymentsByDate = Payment::selectRaw('DATE(created_at) as date, GROUP_CONCAT(id) as payment_ids')
+        ->groupBy('date')
+        ->orderBy('date', 'desc')
+        ->get();
+
+    $pdf = PDF::loadView('payments.daily_report_combined', compact('paymentsByDate'));
+
+    $pdfFileName = 'daily_payment_reports.pdf';
+
+    return $pdf->download($pdfFileName);
+}
 }

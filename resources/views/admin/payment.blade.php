@@ -30,7 +30,9 @@
                             <div class="row justify-content-center">
                                 <div class="col-md-12">
                                     <div class="card">
-                                        <div class="card-header">{{ __('Payment History Report') }}</div>
+                                        <div class="card-header">{{ __('Payment History Report') }}
+                                            <a href="/admin/payment-pdf" class="btn btn-sm btn-success">Download Report</a>
+                                        </div>
                                         <div class="card-body">
                                             <table class="table">
                                                 <thead>
@@ -43,17 +45,15 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                  @foreach ($payment as $pay)
-
-                                                  <tr>
-                                                    <td>{{$pay->flw_id}}</td>
-                                                    <td>{{$pay->amount}}</td>
-                                                    <td>{{$pay->names}}</td>
-                                                    <td>{{$pay->gateway}}</td>
-                                                    <td>{{$pay->created_at}}</td>
-                                                  </tr>
-                                                      
-                                                  @endforeach       
+                                                    @foreach ($payment as $pay)
+                                                        <tr>
+                                                            <td>{{ $pay->flw_id }}</td>
+                                                            <td>{{ $pay->amount }}</td>
+                                                            <td>{{ $pay->names }}</td>
+                                                            <td>{{ $pay->gateway }}</td>
+                                                            <td>{{ $pay->created_at }}</td>
+                                                        </tr>
+                                                    @endforeach
 
                                                 </tbody>
 
