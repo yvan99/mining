@@ -31,7 +31,7 @@
                                 <div class="col-md-12">
                                     <div class="card">
                                         <div class="card-header">{{ __('Assigned Orders Report') }}
-                                        <a href="" class="btn btn-sm btn-success">Download Report</a>
+                                        <a href="/delivery/order-pdf" class="btn btn-sm btn-success">Download Report</a>
                                         </div>
                                         <div class="card-body">
                                             @if (session('success'))

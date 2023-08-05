@@ -76,6 +76,7 @@ Route::prefix('delivery')->middleware(['auth:delivery'])->group(function () {
     Route::view('/dashboard', 'delivery.dashboard');
     Route::get('/shipping', [OrderController::class, 'showOrdersDeliveryGuy']);
     Route::get('/shipping/approve/{id}', [OrderController::class, 'deliverOrder']);
+    Route::get('/order-pdf', [OrderController::class, 'generateLogisticsDocument']);
 });
 
 // Client routes

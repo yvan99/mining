@@ -115,6 +115,23 @@ class OrderController extends Controller
         return view('orders.delivery', compact('orders'));
     }
 
+
+    public function generateLogisticsDocument()
+    {
+        $getLoggedInUser = Auth::user()->id;
+        $ordersByDate = Order::selectRaw('DATE(created_at) as date, GROUP_CONCAT(id) as order_ids')
+            ->groupBy('date')
+            ->orderBy('date', 'desc')
+            ->where('delivery_id', '=', $getLoggedInUser)
+            ->get();
+
+        $pdf = PDF::loadView('orders.logistics_report', compact('ordersByDate'));
+
+        $pdfFileName = 'daily_order_reports.pdf';
+
+        return $pdf->download($pdfFileName);
+    }
+
     public function showOrdersClient()
     {
         $getLoggedInUser = Auth::user()->id;
