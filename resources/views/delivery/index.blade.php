@@ -32,7 +32,7 @@
                                         <div class="card-header">{{ __('Logistics Partners List') }}
                                             <button type="button" class="btn btn-primary" data-bs-toggle="modal"
                                                 data-bs-target="#deliveryModal">
-                                                Add Partner
+                                                Add Logistic Agent
                                             </button>
 
                                         </div>
@@ -91,7 +91,7 @@
                             <div class="modal-dialog">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <h5 class="modal-title" id="deliveryModalLabel">Create Shipping Partner</h5>
+                                        <h5 class="modal-title" id="deliveryModalLabel">Create Logistics Agent</h5>
                                         <button type="button" class="btn-close" data-bs-dismiss="modal"
                                             aria-label="Close"></button>
                                     </div>

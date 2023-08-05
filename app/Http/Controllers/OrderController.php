@@ -160,6 +160,11 @@ class OrderController extends Controller
     public function deliverOrder($id)
     {
         $order = Order::find($id);
+
+        if ($order->inspection_status == 'pending') {
+
+            return redirect('/delivery/shipping')->with('error', 'Order waiting for inspection from Rwanda Revenue');
+        }
         $order->delivery_status = "delivered";
         $order->order_status = "success";
         $order->save();

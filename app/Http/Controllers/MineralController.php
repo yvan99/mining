@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Mineral;
 use Illuminate\Http\Request;
+use PDF;
 
 class MineralController extends Controller
 {
@@ -11,6 +12,29 @@ class MineralController extends Controller
     {
         $minerals = Mineral::all();
         return view('minerals.index', compact('minerals'));
+    }
+
+    public function generateMineralsPdf()
+    {
+        $mineralsByDate = Mineral::selectRaw('DATE(created_at) as date, GROUP_CONCAT(id) as mineral_ids')
+            ->groupBy('date')
+            ->orderBy('date', 'desc')
+            ->get();
+    
+        foreach ($mineralsByDate as $mineralsData) {
+            $mineralIds = explode(',', $mineralsData->mineral_ids);
+            $minerals = Mineral::whereIn('id', $mineralIds)->get();
+    
+            $totalQuantity = $minerals->sum('quantity');
+            $totalWeight = $minerals->sum('weight');
+            $totalExportValue = $minerals->sum('exported_value');
+    
+            $pdf = PDF::loadView('minerals.daily_pdf', compact('minerals','mineralsByDate', 'mineralsData', 'totalQuantity', 'totalWeight', 'totalExportValue'));
+    
+            $pdfFileName = 'daily_minerals_' . $mineralsData->date . '.pdf';
+    
+            return $pdf->download($pdfFileName);
+        }
     }
 
     public function show($id)

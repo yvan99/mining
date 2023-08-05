@@ -58,6 +58,7 @@ Route::prefix('admin')->middleware(['auth:admin'])->group(function () {
     Route::get('/shipping', [DeliveryController::class, 'index'])->name('deliveries.index');
     Route::get('/orders', [OrderController::class, 'showOrders'])->name('orders.show');
     Route::put('/orders/{id}', [OrderController::class,'assignDelivery'])->name('orders.update');
+    Route::get('/daily-pdf', [MineralController::class, 'generateMineralsPdf']);
 });
 
 // Rra routes
@@ -82,6 +83,7 @@ Route::prefix('client')->middleware(['auth:client'])->group(function () {
     Route::get('/view-minerals/{id}', [MineralController::class, 'show'])->name('minerals.show');
     Route::post('/view-minerals', [OrderController::class, 'store'])->name('orders.store');
     Route::get('/orders', [OrderController::class, 'showOrdersClient'])->name('orders.client');
+    
 });
 
 // flutterwave callback function

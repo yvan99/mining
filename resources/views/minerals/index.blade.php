@@ -29,7 +29,9 @@
                             <div class="row justify-content-center">
                                 <div class="col-md-12">
                                     <div class="card">
-                                        <div class="card-header">{{ __('Minerals List') }}</div>
+                                        <div class="card-header">{{ __('Minerals List') }}
+                                        <a href="/admin/daily-pdf" class="btn btn-sm btn-success">Download Report</a>
+                                        </div>
                                         <div class="card-body">
                                             <table class="table">
                                                 <thead>

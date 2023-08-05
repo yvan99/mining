@@ -22,7 +22,7 @@ class CreateMineralsTable extends Migration
             $table->text('content')->nullable();
             $table->string('source')->nullable();
             $table->float('weight');
-            $table->float('exported_value');
+            $table->text('exported_value');
             $table->timestamps();
         });
     }
