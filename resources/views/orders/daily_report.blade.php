@@ -35,10 +35,13 @@
             <table>
                 <thead>
                     <tr>
-                        <th>Client Name</th>
-                        <th>Mineral Name</th>
+                        <th>Order ID</th>
+                        <th>Client</th>
+                        <th>Mineral</th>
                         <th>Quantity</th>
-                        <!-- Add more headers as needed -->
+                        <th>Payment Status</th>
+                        <th>Verif. Status</th>
+                 
                     </tr>
                 </thead>
                 <tbody>
